@@ -1,0 +1,21 @@
+<div class="group-form">
+  <% if @group.errors.any? %>
+    <div class="group-form__errors">
+      <%= @group.errors.count %>件のエラーがあります。
+    </div>
+    <div class="group-form__messages">
+      <% @group.errors.full_messages.each do |msg| %>
+        <div class="group-form__message"><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="group-form__index"><%= link_to '戻る', groups_path %></div>
+  <div class="group-form__body">
+    <%= form_with(model: @group, local: true) do |f| %>
+      <div class="group-form__body-labelname"><%= f.label :グループ名 %></div>
+      <div class="group-form__namefield"><%= f.text_field :name%></div>
+      <div class="group-form__submit"><%= f.submit %></div>
+    <% end %>
+  </div>
+</div>

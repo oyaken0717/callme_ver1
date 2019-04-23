@@ -1,0 +1,14 @@
+<div class="group-index">
+  <div class="group-index__title">グループ一覧</div>
+  <div class="group-index__notice"><%= notice %></div>
+  <div class="group-index__items">
+    <%= render  @groups %>
+  </div>
+  <div class="group-index__new">
+    <%= link_to 'グループ作成', new_group_path, class: 'group-index__new-link' %>
+  </div>
+</div>
+
+
+<%# <%= render partial: 'groups/group', local: { groups: @groups } %>
+<%# <%= render partial: 'groups/group', collection: @groups, as: 'group'  １つ上のeach省略版  %>
