@@ -1,0 +1,18 @@
+<h1>グループ一覧</h1>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th></th>
+  </tr>
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= group.user.name %></td>
+      <td><%= link_to '詳細', group_path(group.id) %></td>
+      <td><%= link_to "編集", edit_group_path(group.id) %></td>
+      <td><%= link_to '削除', group_path(group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'グループ作成', new_group_path %>

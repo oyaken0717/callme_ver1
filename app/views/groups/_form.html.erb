@@ -1,0 +1,15 @@
+<% if @group.errors.any? %>
+  <h2><%= @group.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+<p><%= link_to '戻る', groups_path %></p>
+<%= form_with(model: @group, local: true) do |f| %>
+  <%= f.label :グループ名 %><br>
+  <%= f.text_field :name%><br><br>
+  <%= f.submit %>
+<% end %>
