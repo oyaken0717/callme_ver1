@@ -1,31 +1,38 @@
-<% if @post.errors.any? %>
-  <%= @post.errors.count%>件のエラーがあります。
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <%= msg %>
-    <% end %>
-  </ul>
-<% end %>
+<div class="user-form">
+  <% if @post.errors.any? %>
+    <div class="user-form__errors">
+      <%= @post.errors.count%>件のエラーがあります。
+    </div>
+    <div class="user-form__messages">
+      <% @post.errors.full_messages.each do |msg| %>
+        <div class="user-form__message"><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
 
-<%= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
-  <%= f.label :写真 %><br>
-  <%= image_tag(@post.image.url) if @post.image.url %>
-  <%= f.hidden_field :image_cache %>
-  <%= f.file_field :image %><br>
-  <%= f.label :タイトル %><br>
-  <%= f.text_field :title %><br>
-  <%= f.label :内容 %><br>
-  <%= f.text_field :content %><br><br>
-  <% Tag.all.each do |tag| %>
-  <%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %>
-    <%= tag.name %>
-  <% end %><br><br>
-  <%= f.label :グループ %><br>
-  <div class="group-name">
-    <%= @group.name %>
+  <div class="user-form__body">
+    <%= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
+      <div class="user-form__body-imagelabel"><%= f.label :写真 %></div>
+      <div class="user-form__body-imageurl"><%= image_tag(@post.image.url) if @post.image.url %></div>
+      <%= f.hidden_field :image_cache %>
+      <div class="user-form__body-imagefield"><%= f.file_field :image %></div>
+      <div class="user-form__body-titlelabel"><%= f.label :タイトル %></div>
+      <div class="user-form__body-titlefield"><%= f.text_field :title %></div>
+      <div class="user-form__body-contentlabel"><%= f.label :内容 %></div>
+      <div class="user-form__body-contentfield"><%= f.text_field :content %></div>
+      <div class="user-form__body-tags">
+        <% Tag.all.each do |tag| %>
+        <div class="user-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
+          <div class="user-form__body-tagname"><%= tag.name %></div>
+        <% end %>
+      </div>
+      <div class="user-form__body-grouplabel"><%= f.label :グループ %></div>
+      <div class="user-form__body-groupname"><%= @group.name %></div>
+      <% f.hidden_field :group_id, value: @group.id %>
+      <div class="user-form__body-submit"><%= f.submit %></div>
+    <% end %>
   </div>
-  <% f.hidden_field :group_id, value: @group.id %>
-  <br><br>
-  <%= f.submit %>
-<% end %>
-<%= link_to "戻る", posts_path %>
+  <div class="user-form__index">
+    <%= link_to "戻る", posts_path %>
+  </div>
+</div>
