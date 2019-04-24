@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "/about", to: "homes#about"
 
   resources :groups
+  resources :users
 end

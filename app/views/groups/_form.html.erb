@@ -13,9 +13,9 @@
   <div class="group-form__index"><%= link_to '戻る', groups_path %></div>
   <div class="group-form__body">
     <%= form_with(model: @group, local: true) do |f| %>
-      <div class="group-form__body-labelname"><%= f.label :グループ名 %></div>
-      <div class="group-form__namefield"><%= f.text_field :name%></div>
-      <div class="group-form__submit"><%= f.submit %></div>
+      <div class="group-form__body-namelabel"><%= f.label :グループ名 %></div>
+      <div class="group-form__body-namefield"><%= f.text_field :name%></div>
+      <div class="group-form__body-submit"><%= f.submit %></div>
     <% end %>
   </div>
 </div>
