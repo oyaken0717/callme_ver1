@@ -1,0 +1,38 @@
+<div class="user-form">
+  <% if @post.errors.any? %>
+    <div class="user-form__errors">
+      <%= @post.errors.count%>件のエラーがあります。
+    </div>
+    <div class="user-form__messages">
+      <% @post.errors.full_messages.each do |msg| %>
+        <div class="user-form__message"><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="user-form__body">
+    <%= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
+      <div class="user-form__body-imagelabel"><%= f.label :写真 %></div>
+      <div class="user-form__body-imageurl"><%= image_tag(@post.image.url) if @post.image.url %></div>
+      <%= f.hidden_field :image_cache %>
+      <div class="user-form__body-imagefield"><%= f.file_field :image %></div>
+      <div class="user-form__body-titlelabel"><%= f.label :タイトル %></div>
+      <div class="user-form__body-titlefield"><%= f.text_field :title %></div>
+      <div class="user-form__body-contentlabel"><%= f.label :内容 %></div>
+      <div class="user-form__body-contentfield"><%= f.text_field :content %></div>
+      <div class="user-form__body-tags">
+        <% Tag.all.each do |tag| %>
+        <div class="user-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
+          <div class="user-form__body-tagname"><%= tag.name %></div>
+        <% end %>
+      </div>
+      <div class="user-form__body-grouplabel"><%= f.label :グループ %></div>
+      <div class="user-form__body-groupname"><%= @group.name %></div>
+      <% f.hidden_field :group_id, value: @group.id %>
+      <div class="user-form__body-submit"><%= f.submit %></div>
+    <% end %>
+  </div>
+  <div class="user-form__index">
+    <%= link_to "戻る", posts_path %>
+  </div>
+</div>
