@@ -1,0 +1,31 @@
+<% if @post.errors.any? %>
+  <%= @post.errors.count%>件のエラーがあります。
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
+  <%= f.label :写真 %><br>
+  <%= image_tag(@post.image.url) if @post.image.url %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.file_field :image %><br>
+  <%= f.label :タイトル %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :内容 %><br>
+  <%= f.text_field :content %><br><br>
+  <% Tag.all.each do |tag| %>
+  <%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %>
+    <%= tag.name %>
+  <% end %><br><br>
+  <%= f.label :グループ %><br>
+  <div class="group-name">
+    <%= @group.name %>
+  </div>
+  <% f.hidden_field :group_id, value: @group.id %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "戻る", posts_path %>
