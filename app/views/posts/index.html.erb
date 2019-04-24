@@ -1,0 +1,17 @@
+<div class="post-index">
+  <div class="post-index__title">仕事一覧</div>
+  <div class="post-index__notice"><%= notice %></div>
+  <div class="post-index__new"><%= link_to "新規作成 ", new_group_post_path %></div>
+  <%# -----レベルの小さい順に並べる------------------------------------------------ %>
+  <%# -----検索フォーム---------------------------------------------------------- %>
+  <div class="post-index__body">
+    <%= form_with(model: @posts, method: :get, local: true, url: group_posts_path) do |f| %>
+      <%#= f.label :title_search, '仕事'%>
+      <div class="post-index__body_searchtitle"><%= f.text_field :title %></div>
+      <div class="post-index__body_submit"><%= f.submit '検索' %></div>
+    <% end %>
+  </div>
+  <div class="post-index__items">
+    <% render @posts %>
+  </div>
+</div>
