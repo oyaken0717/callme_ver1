@@ -8,8 +8,10 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :members, dependent: :destroy
+  has_many :groups, through: :members, source: :group
   has_many :posts
   has_many :favorites, dependent: :destroy
+  # has_many :member_groups, through: :members, source: :group
 
 
 

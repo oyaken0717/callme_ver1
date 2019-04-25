@@ -26,7 +26,7 @@
   <%# end %>
   <%# if logged_in? %>
     <div class="group-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
-    <div class="group-show__adminuser"><%= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
+    <div class="group-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
     <!-- <li><%#= link_to "Pお気に入り一覧",favorites_path(current_user.id) %></li> -->
     <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
     <div class="group-show__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>

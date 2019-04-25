@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       collection do
         post :confirm
       end
-      resources :favorites, only:[:create, :index, :destroy]
       resources :comments
     end
+    resources :favorites, only:[:create, :index, :destroy]
   end
 
 end
