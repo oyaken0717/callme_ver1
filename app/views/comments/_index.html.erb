@@ -1,0 +1,14 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+        <p>
+          <%= comment.user.name %>
+          <% if current_user == comment.user %>
+            <%= link_to "編集", edit_post_comment_path(post.id, comment.id) %>
+            <%= link_to "削除", post_comment_path(post.id, comment.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
+          <% end %>
+        </p>
+        <p><%= comment.content %></p>
+    <% end %>
+  <% end %>
+</ul>
