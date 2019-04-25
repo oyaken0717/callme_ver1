@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_25_024941) do
+ActiveRecord::Schema.define(version: 2019_04_25_042143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_024941) do
     t.text "content", default: "", null: false
     t.bigint "user_id"
     t.bigint "group_id"
+    t.text "image"
     t.index ["group_id"], name: "index_posts_on_group_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

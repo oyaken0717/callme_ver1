@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   validates :title, presence: true, length: {maximum: 140}
-
+  mount_uploader :image, ImageUploader
+  
   belongs_to :group
   belongs_to :user
 
