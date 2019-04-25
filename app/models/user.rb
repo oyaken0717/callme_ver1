@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, presence: true, length: { minimum: 6 }
   has_secure_password
+  mount_uploader :image, ImageUploader
 
   has_many :posts
   has_many :favorites, dependent: :destroy

@@ -7,7 +7,7 @@
   <% end %>
   <%#= link_to "戻る", users_path %>
   <div class="group-show__userimage">
-    <%= image_tag (@user.image.url) if @user.image %>
+    <%= image_tag (@user.image.url) if @user.image.present? %>
   </div>
   <!-- <p>名前:</p> -->
   <%#= @user.name %>
