@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "homes#top"
   get "/about", to: "homes#about"
+  resources :users
   resources :sessions, only: [:new, :create, :show, :destroy]
 
   resources :groups do
@@ -8,8 +9,9 @@ Rails.application.routes.draw do
       collection do
         post :confirm
       end
+      resources :favorites, only:[:create, :index, :destroy]
       # resources :comments
     end
   end
-  resources :users
+
 end

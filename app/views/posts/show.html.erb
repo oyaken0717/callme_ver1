@@ -1,0 +1,31 @@
+<h1>詳細</h1>
+<% if current_user == @post.user %>
+  <%= link_to "編集", edit_post_path %>
+  <%= link_to "削除", post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
+<% end %>
+<%= link_to "戻る", posts_path %><br><br>
+<p>投稿者</p>
+<%= image_tag (@post.user.image.url) if @post.user.image %>
+<%= @post.user.name %><br>
+<%= image_tag (@post.image.url) if @post.image.url %>
+<p>タイトル</p>
+<%= @post.title %><br>
+<p>内容</p>
+<%= @post.content %><br>
+<p>タグ</p>
+<% @post.tags.each do |tag| %>
+    <%= tag.name %>
+<% end %><br><br>
+
+<% unless @post.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to "お気に入りする", favorites_path(post_id: @post.id), method: :post, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<div id="comments_area">
+ <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+</div>
+ <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>

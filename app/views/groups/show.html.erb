@@ -17,6 +17,7 @@
   <div class="group-show__postindex">
     <%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/><br/>
   </div>
+  <%= link_to "お気に入り一覧",group_post_favorites_path(current_user.id) %><br>
   <div class="group-show__members">
     <% @group.members.each do |member| %>
       <div class="group-show__member">
