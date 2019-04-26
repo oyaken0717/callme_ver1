@@ -36,6 +36,7 @@ class PostsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(post_id: @post.id)
+    @group = Group.find_by(id:params[:id])
     @comments = @post.comments
     @comment = @post.comments.build
   end
