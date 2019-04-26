@@ -11,7 +11,19 @@
   <% end %>
 
   <div class="user-form__body">
-    <%= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
+    <%#= form_with(model: @post, local: true, url:choose_new_or_edit) do |f| %>
+    <%= form_for([@post.group, @post], local: true, url: choose_new_or_edit) do |f| %>
+    <% if @post.errors.any? %>
+      <div class="user-form__errors">
+        <%= @post.errors.count%>件のエラーがあります。
+      </div>
+      <div class="user-form__messages">
+        <% @post.errors.full_messages.each do |msg| %>
+          <div class="user-form__message"><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+      <%= hidden_field_tag "group_id", @post.group_id %>
       <div class="user-form__body-imagelabel"><%= f.label :写真 %></div>
       <div class="user-form__body-imageurl"><%= image_tag(@post.image.url) if @post.image.url %></div>
       <%= f.hidden_field :image_cache %>
@@ -26,13 +38,13 @@
           <div class="user-form__body-tagname"><%= tag.name %></div>
         <% end %>
       </div>
-      <div class="user-form__body-grouplabel"><%= f.label :グループ %></div>
-      <div class="user-form__body-groupname"><%= @group.name %></div>
-      <% f.hidden_field :group_id, value: @group.id %>
+      <div class="user-form__body-grouplabel"><%#= f.label :グループ %></div>
+      <div class="user-form__body-groupname"><%#= @group.name %></div>
+      <%# f.hidden_field :group_id, value: @group.id %>
       <div class="user-form__body-submit"><%= f.submit %></div>
     <% end %>
   </div>
   <div class="user-form__index">
-    <%= link_to "戻る", posts_path %>
+    <%= link_to "戻る", group_posts_path %>
   </div>
 </div>

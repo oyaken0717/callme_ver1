@@ -1,7 +1,7 @@
 <div class="user-confirm">
   <div class="user-confirm__title">以下の内容で、送信する。</div>
   <div class="user-confirm__body">
-    <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+    <%= form_with(model: @post, url: group_posts_path, local: true) do |f| %>
       <%= f.hidden_field :title %>
       <%= f.hidden_field :content %>
       <%= f.hidden_field :image %>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
 
-  <%= form_with(model: @post, url: new_post_path, local: true, method: "get") do |f| %>
+  <%= form_with(model: @post, url: new_group_post_path, local: true, method: "get") do |f| %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :content %>
     <%= f.hidden_field :image %>
