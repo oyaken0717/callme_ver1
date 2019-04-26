@@ -8,19 +8,23 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js { render :index }
-        # format.html { redirect_to post_path(@post), notice: '投稿できませんでした...' }
-# binding.pry
       else
         format.html { redirect_to post_path(@post), notice: '投稿できませんでした...' }
       end
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      render :index
+    end
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :content)
-    # .merge(user_id:current_user.id)
+    params.require(:comment).permit(:post_id, :user_id, :content)
   end
 
 end

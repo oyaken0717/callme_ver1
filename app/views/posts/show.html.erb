@@ -26,7 +26,7 @@
 <% end %>
 
 <div id="comments_area">
- <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+ <%= render partial: 'comments/index', locals: { group: @group, comments: @comments, post: @post } %>
 </div>
  <%#= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
  <%= render partial: 'comments/form', locals: { group: @group, comment: @comment, post: @post } %>
