@@ -4,8 +4,8 @@
         <p>
           <%= comment.user.name %>
           <% if current_user == comment.user %>
-            <%= link_to "編集", edit_post_comment_path(post.id, comment.id) %>
-            <%= link_to "削除", post_comment_path(post.id, comment.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
+            <%#= link_to "編集", edit_group_post_comment_path(post.id, comment.id) %>
+            <%#= link_to "削除", group_post_comment_path(group.id, post.id, comment.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
           <% end %>
         </p>
         <p><%= comment.content %></p>

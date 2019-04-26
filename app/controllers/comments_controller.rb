@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js { render :index }
+        # format.html { redirect_to post_path(@post), notice: '投稿できませんでした...' }
+# binding.pry
       else
         format.html { redirect_to post_path(@post), notice: '投稿できませんでした...' }
       end
