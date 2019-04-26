@@ -11,7 +11,13 @@
       <div class="post-index__body_submit"><%= f.submit '検索' %></div>
     <% end %>
   </div>
+  <%= form_with(model: Tag.new, local:true, url: group_tags_path) do |f| %><br>
+    <%= f.label :タグ %><br>
+    <%= f.text_field :name %><br><br>
+    <%= f.submit "作成" %><br>
+  <% end %>
   <div class="post-index__items">
-    <% render @posts %>
+    <%= render @posts %>
+    <%# render partial: "posts/post", collection: @posts as: "post" %>
   </div>
 </div>

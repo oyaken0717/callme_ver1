@@ -11,11 +11,25 @@ class PostsController < ApplicationController
     end
     # @posts = Post.all.order(仕事の難しさレベル: :asc) if params[:仕事の難しさレベル] == "true"
   end
-
+#A一番初め
+  # def new
+  #   if params[:back]
+  #     @post = Post.new(post_params)
+  #   else
+  #     @post = Post.new
+  #   end
+  # end
+#Bネストver
+  # def new
+  #   @group = Group.find(params[:group_id])
+  #   @post = Post.new
+  # end
+#C Aに、プラスBver
   def new
     if params[:back]
       @post = Post.new(post_params)
     else
+      @group = Group.find(params[:group_id])
       @post = Post.new
     end
   end
@@ -29,8 +43,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      ContactMailer.contact_mail(@post).deliver
-      redirect_to posts_path, notice:"作成ができました。"
+      # ContactMailer.contact_mail(@post).deliver
+      redirect_to group_posts_path, notice:"作成ができました。"
     else
       render "new"
     end
@@ -64,12 +78,13 @@ class PostsController < ApplicationController
     if post_optional
       @post = post_optional
     else
-      redirect_to posts_path
+      redirect_to group_posts_path
     end
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, :image_cache, :group, tag_ids: [])
+    # params.require(:post).permit(:title, :content, :image, :image_cache, :group_id, tag_ids: [])
+    params.require(:post).permit(:title, :content, :image, :image_cache, tag_ids: []).merge(group_id: params[:group_id])
   end
 
   def check_correct_post
