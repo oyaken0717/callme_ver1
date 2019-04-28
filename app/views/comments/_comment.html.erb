@@ -9,7 +9,7 @@
           <%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %>
         <% end %>
       </p>
-  <p><%= comment.content %></p>
-</div>
-</div>
+      <p><%= comment.content %></p>
+    </div>
+  </div>
 <% end %>

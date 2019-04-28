@@ -14,19 +14,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @group = Group.find(params[:group_id])
-  #   # @post = Post.find(params[:post_id])
-  #   @comment = Comment.build
-  #   @comment.user_id = current_user.id
-  #   format.js { render :edit }
-  # end
-
-  # def edit
-  #   @comment = Comment.find(params[:id])
-  #   format.js { render :edit }
-  # end
-
   def edit
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:post_id])
@@ -37,7 +24,7 @@ class CommentsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    if @comment.update(comment_params)  
+    if @comment.update(comment_params)
     else
       @status = 'fail'
     end

@@ -1,3 +1,24 @@
 <ul>
-    <%= render @comments %>
+    <%#= render @comments %>
+</ul>
+
+<ul>
+  <% comments.each do |comment| %>
+  <% if comment.id.present? %>
+    <div class="for_edit_comment">
+      <div class="each_other_comment row" data-comment="<%= comment.id %>">
+        <p>
+          <%= comment.user.name %>
+          <% if current_user == comment.user %>
+            <%= link_to "編集", edit_group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), remote: true, class: "each_other_comment-edit" %>
+            <%#= render partial: 'comments/edit', locals: { group: @group, comment: @comment, post: @post } %>
+            <%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %>
+          <% end %>
+        </p>
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+
 </ul>

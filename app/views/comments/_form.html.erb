@@ -1,4 +1,3 @@
-<%#= form_for([group, post, comment], remote: true) do |form| %>
 <%= form_with(model: [group, post, comment]) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">

@@ -1,7 +1,7 @@
 <h1>詳細</h1>
 <% if current_user == @post.user %>
-  <%= link_to "編集", edit_post_path %>
-  <%= link_to "削除", post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
+  <%= link_to "編集", edit_group_post_path %>
+  <%= link_to "削除", group_post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
 <% end %>
 <%= link_to "戻る", group_posts_path %><br><br>
 <p>投稿者</p>
@@ -28,5 +28,4 @@
 <div id="comments_area">
  <%= render partial: 'comments/index', locals: { group: @group, comments: @comments, post: @post } %>
 </div>
- <%#= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
  <%= render partial: 'comments/form', locals: { group: @group, comment: @comment, post: @post } %>
