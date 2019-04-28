@@ -1,0 +1,11 @@
+
+<!-- ①全体 index.html.erb -->
+<div class="other_comments">
+  <% if picture.other_comments.present? %>
+    <% all_other_comments = picture.other_comments.order(created_at: :asc) %>
+    <% all_other_comments.each do |each_other_comment| %>
+      <div class="for_edit_comment">
+        <%= render 'other_comments/each_other_comment', each_other_comment: each_other_comment %>
+      </div>
+    <% end %>
+  <% end %>

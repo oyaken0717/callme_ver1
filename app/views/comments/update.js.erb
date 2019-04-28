@@ -1,1 +1,1 @@
-$('.row[data-comment="'+idComment+'"]').parent().html("<%= escape_javascript(render 'each_other_comment', each_other_comment: @other_comment) %>");
+$('.row[data-comment=' + <%= @comment.id %> + ']').parent().html("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");

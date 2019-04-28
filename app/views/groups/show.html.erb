@@ -2,7 +2,6 @@
   <div class="group-show__title">グループ詳細画面</div>
   <div class="group-show__groupindex"><%= link_to '戻る', groups_path %></div>
   <div class="group-show__groupname">グループ名: <%= @group.name %></div>
-  <div class="group-show__ownername">作成者名: <%#= @group.user.name %></div>
   <%# unless @group.user_id == current_user.id %>
     <% if @member.present? %>
       <div class="group-show__out">
@@ -14,9 +13,8 @@
       </div>
     <% end %>
   <%# end %>
-  <div class="group-show__postindex">
-    <%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/><br/>
-  </div>
+  <div class="group-show__postindex"><%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/></div>
+  メンバー一覧
   <%= link_to "お気に入り一覧",group_favorites_path(current_user.id) %><br>
   <div class="group-show__members">
     <% @group.members.each do |member| %>

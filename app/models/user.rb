@@ -13,8 +13,9 @@ class User < ApplicationRecord
   has_many :comments
   has_many :favorites, dependent: :destroy
 
-
-
-
-
+  def is_author(group_id)
+    return false if self&.members.length == 0
+    current_member = self.members.select { |member| member&.group_id == group_id }[0]
+    return current_member&.user_is_author
+  end
 end
