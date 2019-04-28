@@ -1,2 +1,3 @@
 // $('.row[data-comment="'+ @id_comment +'"]').parent().html("<%= escape_javascript(render 'comments/edit') %>");
-$('.row[data-comment="'+ @id_comment +'"]').parent().html("<%= escape_javascript(render 'comments/edit') %>");
+// $('.row[data-comment="'+ @id_comment +'"]').parent().html("<%= escape_javascript(render 'comments/edit', { group: @group, post: @post, id_comment: @id_comment }) %>");
+$('.row[data-comment="'+ @comment.id +'"]').parent().html("<%= escape_javascript(render 'comments/edit') %>");

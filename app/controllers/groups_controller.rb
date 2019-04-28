@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @group.members.build(user_id: current_user.id, user_is_author: true)
   end
 
   def create

@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def edit
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:post_id])
-    @id_comment = Comment.find(params[:id]).id
+    @comment = Comment.find(params[:id])
   end
 
   def update
