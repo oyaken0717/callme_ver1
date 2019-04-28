@@ -37,11 +37,11 @@ class CommentsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    if @comment.update(comment: params[:comment][:comment])
-      @id_comment = @comment.id
+    if @comment.update(comment_params)  
     else
       @status = 'fail'
     end
+    redirect_to group_post_path(@group, @post)
   end
 
   def destroy

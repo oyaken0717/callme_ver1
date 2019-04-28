@@ -7,11 +7,11 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.members.build(user_id: current_user.id, user_is_author: true)
   end
 
   def create
     @group = Group.new(group_params)
+    @group.members.build(user_id: current_user.id, user_is_author: true)
     # @group = current_user.groups.build(group_params)
     if @group.save #&& Member.create(user_id: current_user.id, group_id: params[:group_id] )
       redirect_to groups_path, notice: "グループを作成しました！"
