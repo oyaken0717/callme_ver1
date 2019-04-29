@@ -1,23 +1,23 @@
-<div class="group-show">
+<div class="user-show">
   <%= notice %>
-  <div class="group-show__username"><%= @user.name %>のページ</div>
+  <div class="user-show__username"><%= @user.name %>のページ</div>
   <% if current_user == @user %>
-    <div class="group-show__edit">
+    <div class="user-show__edit">
       <%= link_to "編集", edit_user_path(@user.id||User.new) %>
     </div>
   <% end %>
   <%#= link_to "戻る", users_path %>
-  <div class="group-show__userimage">
+  <div class="user-show__userimage">
     <%= image_tag (@user.image.url) if @user.image.present? %>
   </div>
   <!-- <p>名前:</p> -->
   <%#= @user.name %>
-  <div class="group-show__emailitem">メールアドレス:</div>
-  <div class="group-show__email"><%= @user.email %></div>
-  <div class="group-show__groups">所属グループ</div>
+  <div class="user-show__emailitem">メールアドレス:</div>
+  <div class="user-show__email"><%= @user.email %></div>
+  <div class="user-show__groups">所属グループ</div>
   <% @user.groups.each do |group| %>
-    <div class="group-show__groupname"><%= group.name %></div>
-    <div class="group-show__groupshow"><%= link_to "詳細", group_path(group.id) %></div>
+    <div class="user-show__groupname"><%= group.name %></div>
+    <div class="user-show__groupshow"><%= link_to "詳細", group_path(group.id) %></div>
   <% end %>
   <% if logged_in? %>
     <!-- <li><%#= link_to "参加グループ一覧", groups_path %></li> -->
@@ -26,11 +26,11 @@
     <%= link_to "Gグループメンバー", users_path %>
   <%# end %>
   <%# if logged_in? %>
-    <div class="group-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
-    <div class="group-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
+    <div class="user-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
+    <div class="user-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
     <!-- <li><%#= link_to "Pお気に入り一覧",favorites_path(current_user.id) %></li> -->
     <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
-    <div class="group-show__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+    <div class="user-show__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
   <%# else %>
     <!-- <li><%#= link_to "新規登録", new_user_path %></li> -->
     <!-- <li><%#= link_to "ログイン", new_session_path %></li> -->
