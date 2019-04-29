@@ -99,6 +99,11 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     faker (1.9.3)
       i18n (>= 0.7)
     ffi (1.10.0)
@@ -265,6 +270,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   coffee-script-source
   dotenv-rails
+  factory_bot_rails (~> 4.11)
   faker
   jbuilder (~> 2.5)
   jquery-rails
