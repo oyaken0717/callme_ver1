@@ -13,6 +13,10 @@ describe 'グループの中の仕事管理機能', type: :system do
     click_button 'ログイン'
   end
 
+  shared_examples_for 'ユーザーBが作成した仕事が表示される' do
+    it { expect(page).to have_content 'post2' }
+  end
+
   describe 'グループの中の仕事一覧表示機能' do
     context 'ユーザーBがログインし、グループ2に所属しているとき' do
       let (:login_user) { user_b }
@@ -44,13 +48,13 @@ describe 'グループの中の仕事管理機能', type: :system do
       let(:login_user) { user_b }
 
       before do
-        # group_b = FactoryBot.create(:group, name: 'group2')
         visit group_post_path(group_b, post_b)
       end
 
-      it 'ユーザーBが作成した仕事が表示される' do
-        expect(page).to have_content 'post2'
-      end
+      # it 'ユーザーBが作成した仕事が表示される' do
+      #   expect(page).to have_content 'post2'
+      # end
+      it_behaves_like 'ユーザーBが作成した仕事が表示される'
     end
   end
 end
