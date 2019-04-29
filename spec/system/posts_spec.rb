@@ -28,5 +28,20 @@ describe '仕事管理機能', type: :system do
         expect(page).to have_content 'post2'
       end
     end
+
+    content 'ユーザー「C」がログインしている時' do
+      before do
+        FactoryBot.create(:user, name: 'c@c.com', email: 'c@c.com', password: 'c@c.com')
+        visit new_session_path
+        fill_in 'session_email', with: 'c@c.com'
+        fill_in 'session_password', with: 'c@c.com'
+        click_button 'ログイン'
+      end
+
+      it 'ユーザー『B』が作成したタスクが表示されない' do
+        expect(page).to have_no_content ''
+      end
+    end
+
   end
 end

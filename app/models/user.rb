@@ -18,4 +18,10 @@ class User < ApplicationRecord
     current_member = self.members.select { |member| member&.group_id == group_id }[0]
     return current_member&.user_is_author
   end
+
+  def is_member(current_user)
+    return false if self&.members.length == 0
+    join_member = self.members.select { |member| member&.user_id == current_user.id }[0]
+    return join_member
+  end
 end

@@ -13,14 +13,17 @@
       </div>
     <% end %>
   <%# end %>
-  <div class="group-show__postindex"><%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/></div>
-  メンバー一覧
-  <%= link_to "お気に入り一覧",group_favorites_path(current_user.id) %><br>
-  <div class="group-show__members">
-    <% @group.members.each do |member| %>
-      <div class="group-show__member">
-        <%= member.user.name %>
-      </div>
-    <% end %>
-  </div>
+
+  <%# if current_user == @group.members.user_id(current_user.id) %>
+  <% if current_user&.is_member(current_user) %>
+    <div class="group-show__postindex"><%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/></div>
+    <%= link_to "お気に入り一覧",group_favorites_path(current_user.id) %><br>
+    <div class="group-show__members">
+      <% @group.members.each do |member| %>
+        <div class="group-show__member">
+          <%= member.user.name %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
