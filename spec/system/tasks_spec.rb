@@ -7,9 +7,12 @@ describe '仕事管理機能', type: :system do
       FactoryBot.create(:post, name: 'post2', user: user_b)
     end
 
-    context '' do
+    context 'ユーザーBがログインしている時' do
       before do
-
+        visit login_path
+        fill_in 'メールアドレス', with: 'b@b.com'
+        fill_in 'パスワード', with: 'b@b.com'
+        click_button 'ログイン'
       end
     end
 
