@@ -24,7 +24,6 @@
   <%# if logged_in? %>
     <div class="user-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
     <div class="user-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
-    <!-- <li><%#= link_to "Pお気に入り一覧",favorites_path(current_user.id) %></li> -->
     <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
     <!-- <div class="user-show__logout"><%#= link_to "ログアウト", session_path(current_user.id), method: :delete %></div> -->
   <%# else %>

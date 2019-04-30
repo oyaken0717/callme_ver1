@@ -6,6 +6,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.all
+    @group = Group.find(params[:group_id])
   end
 
   def destroy
