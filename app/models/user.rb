@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :favorites, dependent: :destroy
 
+  scope :search_name, -> (user_name) { where("name LIKE ?", "%#{ user_name }%") }
+
   def is_author(group_id)
     return false if self&.members.length == 0
     current_member = self.members.select { |member| member&.group_id == group_id }[0]

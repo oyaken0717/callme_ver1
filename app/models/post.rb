@@ -11,4 +11,6 @@ class Post < ApplicationRecord
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
+
+  scope :search_title, -> (post_title) { where("title LIKE ?", "%#{ post_title }%") }
 end
