@@ -7,6 +7,7 @@
     <% if member.user_is_author == false %>
     <%# binding.pry %>
       <%= link_to '強制退会', member_path(id: member.id), method: :delete %>
+      <%= link_to "編集", edit_user_path(member.user.id) %>
     <% end %>
   </div>
 <% end %>
