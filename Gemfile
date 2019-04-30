@@ -44,6 +44,14 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'factory_bot_rails', '~> 4.11'
+  gem 'spring'
+  gem "rspec-rails"
+  gem 'spring-commands-rspec'
+  gem 'faker'
+  gem 'capybara', '~> 2.13'
+  gem "database_cleaner"
+  gem "launchy"
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -57,11 +65,10 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'launchy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

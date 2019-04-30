@@ -23,11 +23,13 @@ describe 'post管理機能', type: :system do
 
       it 'ユーザーBが作成したpostが表示される' do
         click_link("全グループ一覧画面")
+        binding.pry
         page.first(".group-item__body-link").click_link
         click_on '参加する'
         page.first(".group-item__body-link").click_link
         expect(page).to have_content 'グループ名: group2'
         click_on '仕事一覧'
+        visit group_posts_path(group_b)
         expect(page).to have_content 'post2'
       end
     end
@@ -37,7 +39,7 @@ describe 'post管理機能', type: :system do
 
       it 'ユーザー『B』が作成したpostが表示されない' do
         click_link '全グループ一覧画面'
-        page.first(".group-item__body-link").click_link
+        page.first(".group-item__body-link").click_on
         expect(page).to have_no_content 'post2'
       end
     end
@@ -86,7 +88,6 @@ describe 'post管理機能', type: :system do
   describe 'post更新機能' do
     context 'ユーザーBがログインし、グループ2に所属しているとき' do
       let (:login_user) { user_b }
-      let(:post_titile) { post3 }
 
       before do
         visit edit_group_post_path(group_b, post_b)
@@ -97,6 +98,28 @@ describe 'post管理機能', type: :system do
         click_button '更新する'
         expect(page).to have_content '編集しました'
       end
+
+    end
+  end
+
+  describe '削除機能' do
+    context 'ユーザーBがログインしている時' do
+      let(:login_user) { user_b }
+
+      before do
+        visit group_post_path(group_b, post_b)
+      end
+
+      # it "削除する" do
+      #   expect(page).to have_content '詳細'
+      #   # click_link "削除"
+      #   binding.pry
+      #
+      #   page.first(".post-show__delete").click_on
+      #   # page.first(".post-show__delete").click_link
+      #   expect(page).to have_content '本当に削除しますか？'
+      #   # expect(page).to have_content '削除しました'
+      # end
 
     end
   end

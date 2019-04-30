@@ -31,6 +31,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.after do |example|
+    if example.metadata[:type] == :feature and example.exception.present? and example.metadata[:open_on_error] == true
+      save_and_open_page
+    end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
