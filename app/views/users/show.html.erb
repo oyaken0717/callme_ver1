@@ -14,25 +14,26 @@
   <%#= @user.name %>
   <div class="user-show__emailitem">メールアドレス:</div>
   <div class="user-show__email"><%= @user.email %></div>
-  <div class="user-show__groups">所属グループ</div>
-  <% @user.groups.each do |group| %>
-    <div class="user-show__groupname"><%= group.name %></div>
-    <div class="user-show__groupshow"><%= link_to "詳細", group_path(group.id) %></div>
-  <% end %>
+
   <% if logged_in? %>
     <!-- <li><%#= link_to "参加グループ一覧", groups_path %></li> -->
     <!-- <li><%#= link_to "P仕事一覧", group_posts_path %></li> -->
 
-    <%= link_to "Gグループメンバー", users_path %>
+    <%= link_to "ユーザー一覧", users_path %>
   <%# end %>
   <%# if logged_in? %>
     <div class="user-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
     <div class="user-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
     <!-- <li><%#= link_to "Pお気に入り一覧",favorites_path(current_user.id) %></li> -->
     <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
-    <div class="user-show__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+    <!-- <div class="user-show__logout"><%#= link_to "ログアウト", session_path(current_user.id), method: :delete %></div> -->
   <%# else %>
     <!-- <li><%#= link_to "新規登録", new_user_path %></li> -->
     <!-- <li><%#= link_to "ログイン", new_session_path %></li> -->
+  <% end %>
+  <div class="user-show__groups">所属グループ</div>
+  <% @user.groups.each do |group| %>
+    <div class="user-show__groupname"><%= group.name %></div>
+    <div class="user-show__groupshow"><%= link_to "詳細", group_path(group.id) %></div>
   <% end %>
 </div>
