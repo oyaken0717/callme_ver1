@@ -1,7 +1,8 @@
-<h1>詳細</h1>
+<div class = "post-show">
+<div class = "post-show__title">詳細</div>
 <% if current_user == @post.user %>
-  <%= link_to "編集", edit_group_post_path %>
-  <%= link_to "削除", group_post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"} %>
+  <div class = "post-show__edit"><%= link_to "編集", edit_group_post_path %></div>
+  <div class = "post-show__delete"><%= link_to "削除", group_post_path(@post.id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
 <% end %>
 <%= link_to "戻る", group_posts_path %><br><br>
 <p>投稿者</p>

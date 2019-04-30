@@ -1,4 +1,13 @@
-<h1>参加グループ一覧</h1>
-<% @members.each do |member| %>
-  <%= member.group.name %><br>
+<h1>グループ一メンバー覧</h1>
+<% @group.members.each do |member| %>
+  <div class="group-show__member">
+    <%= member.user.name %>
+    <%# <%= link_to "削除", user_path(member.user_id), method: :delete, data: {confirm: "本当に削除してもいいですか？"} %>
+    <%# このメンバーのuser_is_authorがtrueでなければ %>
+    <% if member.user_is_author == false %>
+    <%# binding.pry %>
+      <%= link_to '強制退会', member_path(id: member.id), method: :delete %>
+      <%= link_to "編集", edit_user_path(member.user.id) %>
+    <% end %>
+  </div>
 <% end %>
