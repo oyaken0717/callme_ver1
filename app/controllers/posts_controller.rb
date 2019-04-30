@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path, notice: "編集しました"
+      redirect_to group_posts_path, notice: "編集しました"
     else
       render "edit"
     end

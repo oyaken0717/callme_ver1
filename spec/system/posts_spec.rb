@@ -56,6 +56,7 @@ describe 'post管理機能', type: :system do
 
   describe '新規作成機能' do
     let(:login_user) { user_b }
+    let(:post_titile) { post3 }
 
     before do
       visit new_group_post_path(group_b)
@@ -79,6 +80,24 @@ describe 'post管理機能', type: :system do
       it 'エラーになる' do
         expect(page).to have_content 'Titleを入力してください'
       end
+    end
+  end
+
+  describe 'post更新機能' do
+    context 'ユーザーBがログインし、グループ2に所属しているとき' do
+      let (:login_user) { user_b }
+      let(:post_titile) { post3 }
+
+      before do
+        visit edit_group_post_path(group_b, post_b)
+      end
+
+      it "更新する" do
+        fill_in 'post_title', with: "post_4"
+        click_button '更新する'
+        expect(page).to have_content '編集しました'
+      end
+
     end
   end
 end
