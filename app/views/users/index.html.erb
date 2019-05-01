@@ -1,6 +1,6 @@
 <div class="user-index">
 <div class="user-index__title">User一覧</div>
-  <%= form_with(model: @users, method: :get, local: true, url: users_path) do |f| %>
+  <%= form_with(model: User.new(), method: :get, local: true, url: users_path) do |f| %>
     <div class="user-index__namesearch">
       <%= f.text_field :name %>
     </div>
