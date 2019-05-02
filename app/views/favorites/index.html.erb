@@ -1,9 +1,12 @@
-<h1>お気に入り一覧</h1>
-<% @favorites.each do |favorite| %>
-  <%#= image_tag(favorite.post.image.url) if favorite.post.image.url %>
-  <%# binding.pry %>
-  <% if @group.id == favorite.post.group_id %>
-    <%= link_to favorite.post.title, group_post_path(favorite.post.group_id, favorite.post_id) %>
-  <% end %>
-  <%#= link_to(post.title,"/groups/#{post.group.id}/posts/#{post.id}") %>
-<% end %>
+<div class="favorite-index">
+  <div class="favorite-index__title">お気に入り一覧</div>
+    <div class="favorite-index__items">
+      <% @favorites.each do |favorite| %>
+        <% if @group.id == favorite.post.group_id %>
+          <div class="favorite-item">
+            <%= link_to favorite.post.title, group_post_path(favorite.post.group_id, favorite.post_id) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</div>
