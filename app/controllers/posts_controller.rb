@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(post_id: @post.id)
-    @group = Group.find_by(id:params[:id])
+    @group = Group.find_by(id:params[:group_id])
     @comments = @post.comments
     @comment = @post.comments.build
   end
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: "削除しました"
+    redirect_to group_posts_path, notice: "削除しました"
   end
 
   def confirm

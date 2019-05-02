@@ -1,11 +1,17 @@
-<h1>ログイン</h1>
-<% flash.each do |key, value| %>
-  <%= content_tag(:div, value, class: "#{key}") %>
-<% end %>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :メールアドレス %><br>
-  <%= f.email_field :email %><br>
-  <%= f.label :パスワード %><br>
-  <%= f.password_field :password %><br>
-  <%= f.submit "ログイン" %>
-<% end %>
+<div class="session-new">
+  <div class="session-new__title">ログイン</div>
+  <% flash.each do |key, value| %>
+    <div class="session-new__flash">
+      <%= content_tag(:div, value, class: "#{key}") %>
+    </div>
+  <% end %>
+  <div class="session-new__body">
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+      <div class="session-new__body-emaillabel"><%= f.label :メールアドレス %></div>
+      <div class="session-new__body-emailfield"><%= f.email_field :email %></div>
+      <div class="session-new__body-passwordlabel"><%= f.label :パスワード %></div>
+      <div class="session-new__body-passwordfield"><%= f.password_field :password %><br>
+      <div class="session-new__body-submit"><%= f.submit "ログイン" %></div>
+    <% end %>
+  </div>
+</div>

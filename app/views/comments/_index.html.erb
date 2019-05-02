@@ -1,24 +1,26 @@
-<ul>
-    <%#= render @comments %>
-</ul>
-
-<ul>
-  <% comments.each do |comment| %>
-  <% if comment.id.present? %>
-    <div class="for_edit_comment">
-      <div class="each_other_comment row" data-comment="<%= comment.id %>">
-        <p>
-          <%= comment.user.name %>
-          <% if current_user == comment.user %>
-            <%= link_to "編集", edit_group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), remote: true, class: "each_other_comment-edit" %>
-            <%#= render partial: 'comments/edit', locals: { group: @group, comment: @comment, post: @post } %>
-            <%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %>
-          <% end %>
-        </p>
-        <p><%= comment.content %></p>
-      </div>
-    </div>
-  <% end %>
-  <% end %>
-
-</ul>
+<div class="comment-index">
+  <div class="comment-index__titile"><%= "コメント" %></div>
+  <div class="comment-index__items">
+    <% comments.each do |comment| %>
+      <% if comment.id.present? %>
+        <div class="for_edit_comment">
+          <div class="each_other_comment row" data-comment="<%= comment.id %>">
+            <div class="comment-item__username"><%= comment.user.name %></div>
+            <% if current_user == comment.user %>
+              <div class="comment-item__edit">
+                <%= link_to "編集", edit_group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), remote: true, class: "each_other_comment-edit" %>
+              </div>
+              <div class="comment-item__destroy">
+                <%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %>
+              </div>
+            <% end %>
+            <div class="comment-item__content">
+              <%= comment.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <div class="comment-item__notice"><%= notice %></div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :group_access, only: [:new]
 
   def index
     @groups = Group.all
@@ -49,6 +50,10 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def group_access
+      redirect_to new_session_path unless logged_in?
   end
 
 end

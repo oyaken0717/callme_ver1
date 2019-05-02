@@ -19,10 +19,12 @@ class MembersController < ApplicationController
   def destroy
     # member = current_user.members.find_by(id: params[:id]).destroy
 
-    member = Member.find_by(id: params[:id]).destroy
-    member.destroy
-
-    redirect_to groups_url
+    if member = Member.find_by(id: params[:id])
+      member.destroy
+      redirect_to groups_url
+    else
+      redirect_to groups_url
+    end
     # , notice: "#{member.group.user.name}さんのグループを退会しました"
   end
 end

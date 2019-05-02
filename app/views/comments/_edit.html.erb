@@ -1,22 +1,20 @@
-<%= form_with(model:[ @group, @post, @comment]) do |form| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
+<div class = "comment-edit">
+  <%= form_with(model:[ @group, @post, @comment]) do |form| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+      <div class = "comment-edit__error">
+        <%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:
+      </div>
+      <div class = "comment-edit__messages">
         <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <div class = "comment-edit__messages"><%= message %></div>
         <% end %>
-      </ul>
-    </div>
+      </div>
+      </div>
+    <% end %>
+
+    <div class="comment-edit__label"><%= form.label :コメント %></div>
+    <div class="comment-edit__textarea"><%= form.text_area :content %></div>
+    <div class="comment-edit__submit"><%= form.submit "コメントする" %></div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :コメント %><br>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "コメントする" %>
-  </div>
-<% end %>
 </div>

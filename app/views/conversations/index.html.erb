@@ -1,14 +1,12 @@
-<table class="table table-hover">
-  <thead>
-<h2>メッセージ一覧</h2>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <td>
-        <% if conversation.target_user(current_user).present? %>
-          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
-        <% end %>
-      </td>
-    <% end %>
-  </tbody>
-</table>
+<div class="conversation-index">
+  <div class="conversation-index__title">メッセージ一覧</div>
+    <div class="conversation-index__items">
+      <% @conversations.each do |conversation| %>
+          <% if conversation.target_user(current_user).present? %>
+            <div class="conversation-item__username">
+              <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+</div>
