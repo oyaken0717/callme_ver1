@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "/about", to: "homes#about"
   resources :users
   resources :sessions, only: [:new, :create, :show, :destroy]
-
   resources :conversations do
    resources :messages
   end
