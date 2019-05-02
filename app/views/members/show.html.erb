@@ -1,16 +1,20 @@
-<h1>グループ詳細画面</h1>
-<p><%= link_to '戻る', groups_path %></p>
-<p>グループ名: <%= @member.group.name %></p>
-<p>作成者名: <%= @member.group.user.name %></p>
-
-<!-- グループのユーザー一覧<br> -->
-
-<% unless @member.group.user_id == current_user.id %>
-  <% if @member.present? %>
-    <%= link_to '退会する', member_path(id: @member.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to '参加する', members_path(group_id: @group.id), method: :post, class: 'btn btn-primary' %>
+<div class="member-show">
+  <div class="member-show__title">グループ詳細画面</div>
+  <div class="member-show__groupindex"><%= link_to '戻る', groups_path %></div>
+  <div class="member-show__group-name">グループ名: <%= @member.group.name %></div>
+  <div class="member-show__group-username">作成者名: <%= @member.group.user.name %></div>
+  <% unless @member.group.user_id == current_user.id %>
+    <% if @member.present? %>
+      <div class="member-show__out">
+        <%= link_to '退会する', member_path(id: @member.id), method: :delete, class: 'btn btn-danger' %>
+      </div>
+    <% else %>
+      <div class="member-show__in">
+        <%= link_to '参加する', members_path(group_id: @group.id), method: :post, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-
-<%= link_to "新規投稿", new_group_post_path(group_id: @member.group.id) %>
+  <div class="member-show__postnew">
+    <%= link_to "新規投稿", new_group_post_path(group_id: @member.group.id) %>
+  </div>
+</div>
