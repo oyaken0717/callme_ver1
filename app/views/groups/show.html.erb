@@ -2,11 +2,11 @@
   <div class="group-show__title">グループ詳細画面</div>
   <div class="group-show__groupindex"><%= link_to '戻る', groups_path %></div>
   <div class="group-show__groupname">グループ名: <%= @group.name %></div>
-
-    <%# カレントユーザーのメンバーのuser_is_authorがtrueであれば %>
-    <% if current_user&.is_author(@group.id) %>
+  <% if current_user&.is_author(@group.id) %>
+    <div class="group-show__adminmember">
       <%= link_to "メンバー管理画面", members_path(group_id: @group.id) %>
-    <% end %>
+    </div>
+  <% end %>
 
   <%# unless @group.user_id == current_user.id %>
     <% if @member.present? %>

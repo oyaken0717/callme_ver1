@@ -2,3 +2,45 @@
 @import "bootstrap";
 
 @import './groups';
+
+// application
+.application {
+  margin-bottom: 40vh;
+  &__title {
+    width: 100vw;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    // color: aqua;
+    // background-color: #808080;
+    // box-shadow: 1px 1px 10px 4px #808080;
+  }
+  &__about {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+  &__username {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+  &__logout {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  &__makeuser {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+  &__login {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+}

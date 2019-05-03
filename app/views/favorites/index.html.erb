@@ -4,7 +4,9 @@
       <% @favorites.each do |favorite| %>
         <% if @group.id == favorite.post.group_id %>
           <div class="favorite-item">
-            <%= link_to favorite.post.title, group_post_path(favorite.post.group_id, favorite.post_id) %>
+            <div class="favorite-item__posttitle">
+              <%= link_to favorite.post.title, group_post_path(favorite.post.group_id, favorite.post_id) %>
+            </div>
           </div>
         <% end %>
       <% end %>

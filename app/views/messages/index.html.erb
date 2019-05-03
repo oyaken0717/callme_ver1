@@ -6,10 +6,10 @@
     <% @messages.each do |message| %>
      <% if message.body.present? %>
   　   <div class="message-item">
-          <div class="message-content">
-            <div class="message-header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
-            <div class="message-list">
-              <div class="message-item">
+          <div class="message-item__content">
+            <div class="message-item__header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+            <div class="message-item__list">
+              <div class="message-item__item">
                 <i class="right triangle icon"></i>
                 <div class="message-item__body">
                   <%= message.body %> /

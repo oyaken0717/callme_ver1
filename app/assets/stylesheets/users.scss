@@ -1,3 +1,176 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// index
+.user-index {
+  margin-bottom: 40vh;
+  &__title {
+    width: 100vw;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    // color: aqua;
+    // background-color: #808080;
+    // box-shadow: 1px 1px 10px 4px #808080;
+  }
+  &__namesearch {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+  &__items {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+  &__notice {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  &__submit {
+    width: 40vw;
+    margin: 20px auto;
+    text-align: center;
+  }
+}
+
+.user-item {
+  border-radius: 15px;
+  border-width: 1px;
+  border: solid 1px #C0C0C0;
+  margin: 8px;
+  &__body {
+    padding: 10px;
+    &-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 5px 0;
+      border-bottom: solid 1px #C0C0C0;
+    }
+    &-username {
+      margin: 5px 0;
+    }
+    &-links {
+      width: 80%;
+      margin: 5px auto;
+      padding: 5px;
+      height: 44px;;
+      clear: both;
+    }
+    &-link {
+      float: left;
+      margin: 0 5px;
+    }
+  }
+}
+// _user
+.user-item {
+  &__image {
+
+  }
+  &__username {
+
+  }
+  &__message {
+
+  }
+}
+// new
+.user-new {
+  &__title {
+
+  }
+}
+// edit
+.user-edit {
+  &__title {
+
+  }
+  &__show {
+
+  }
+}
+// _form
+.user-form{
+  &__errors{
+
+  }
+  &__messages{
+
+  }
+  &__message {
+
+  }
+  &__body {
+    &-profilelabel {
+
+    }
+    &-temporaryimage {
+
+    }
+    &-imagefield {
+
+    }
+    &-namelabel {
+
+    }
+    &-namefield {
+
+    }
+    &-maillabel {
+
+    }
+    &-emailfield {
+
+    }
+    &-passwordlabel {
+
+    }
+    &-passwordfield {
+
+    }
+    &-repasswordlabel {
+
+    }
+    &-repasswordfield {
+
+    }
+    &-submit {
+
+    }
+  }
+}
+// show
+.user-show {
+  &__username {
+
+  }
+  &__edit {
+
+  }
+  &__userimage {
+
+  }
+  &__emailitem {
+
+  }
+  &__email {
+
+  }
+  &__groupindex {
+
+  }
+  &__adminuser {
+
+  }
+  &__groups {
+
+  }
+  &__groupname {
+
+  }
+  &__groupshow {
+
+  }
+}
