@@ -1,3 +1,4 @@
+// index
 .user-index {
   margin-bottom: 40vh;
   &__title {
@@ -61,5 +62,115 @@
       float: left;
       margin: 0 5px;
     }
+  }
+}
+// _user
+.user-item {
+  &__image {
+
+  }
+  &__username {
+
+  }
+  &__message {
+
+  }
+}
+// new
+.user-new {
+  &__title {
+
+  }
+}
+// edit
+.user-edit {
+  &__title {
+
+  }
+  &__show {
+
+  }
+}
+// _form
+.user-form{
+  &__errors{
+
+  }
+  &__messages{
+
+  }
+  &__message {
+
+  }
+  &__body {
+    &-profilelabel {
+
+    }
+    &-temporaryimage {
+
+    }
+    &-imagefield {
+
+    }
+    &-namelabel {
+
+    }
+    &-namefield {
+
+    }
+    &-maillabel {
+
+    }
+    &-emailfield {
+
+    }
+    &-passwordlabel {
+
+    }
+    &-passwordfield {
+
+    }
+    &-repasswordlabel {
+
+    }
+    &-repasswordfield {
+
+    }
+    &-submit {
+
+    }
+  }
+}
+// show
+.user-show {
+  &__username {
+
+  }
+  &__edit {
+
+  }
+  &__userimage {
+
+  }
+  &__emailitem {
+
+  }
+  &__email {
+
+  }
+  &__groupindex {
+
+  }
+  &__adminuser {
+
+  }
+  &__groups {
+
+  }
+  &__groupname {
+
+  }
+  &__groupshow {
+
   }
 }
