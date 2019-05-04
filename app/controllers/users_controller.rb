@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in
+
   def new
     if params[:back]
       @user = User.new(user_params)
@@ -59,5 +61,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :image, :image_cache, :password, :password_confirmation)
+  end
+
+  def check_logged_in
+      redirect_to new_session_path unless logged_in?
   end
 end
