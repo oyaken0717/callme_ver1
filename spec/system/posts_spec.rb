@@ -22,8 +22,7 @@ describe 'post管理機能', type: :system do
       let (:login_user) { user_b }
 
       it 'ユーザーBが作成したpostが表示される' do
-        click_link("全グループ一覧画面")
-        binding.pry
+        click_link("グループ一覧")
         page.first(".group-item__body-link").click_link
         click_on '参加する'
         page.first(".group-item__body-link").click_link
@@ -38,7 +37,7 @@ describe 'post管理機能', type: :system do
       let (:login_user) { user_c }
 
       it 'ユーザー『B』が作成したpostが表示されない' do
-        click_link '全グループ一覧画面'
+        click_link 'グループ一覧'
         page.first(".group-item__body-link").click_on
         expect(page).to have_no_content 'post2'
       end

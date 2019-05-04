@@ -3,10 +3,9 @@
   <div class="group-show__groupindex"><%= link_to '戻る', groups_path %></div>
   <div class="group-show__groupname">グループ名: <%= @group.name %></div>
   <% if current_user&.is_author(@group.id) %>
-    <div class="group-show__adminmember">
-      <%= link_to "メンバー管理画面", members_path(group_id: @group.id) %>
-      <%= link_to "編集", edit_group_path(@group.id) %>
-    </div>
+    <div class="group-show__adminmember"><%= link_to "メンバー管理画面", members_path(group_id: @group.id) %></div>
+    <div class="group-show__edit"><%= link_to "編集", edit_group_path(@group.id) %></div>
+    <div class="group-show__destroy"><%= link_to '削除', group_path(@group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
   <% end %>
 
   <%# unless @group.user_id == current_user.id %>
