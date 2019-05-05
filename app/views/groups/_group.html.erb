@@ -1,12 +1,7 @@
 <div class="group-item">
   <div class="group-item__body">
-    <div class="group-item__body-username"><%= group.name %></div>
     <div class="group-item__body-links">
-      <div class="group-item__body-link"><%= link_to '詳細', group_path(group.id) %></div>
-      <div class="group-item__body-link"><%= link_to "編集", edit_group_path(group.id) %></div>
-      <% if current_user&.is_author(group.id) %>
-        <div class="group-item__body-link"><%= link_to '削除', group_path(group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
-      <% end %>
+      <div class="group-item__body-link"><%= link_to group.name, group_path(group.id) %></div>
     </div>
   </div>
 </div>

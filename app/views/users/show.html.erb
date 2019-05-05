@@ -22,7 +22,7 @@
     <%= link_to "ユーザー一覧", users_path %>
   <%# end %>
   <%# if logged_in? %>
-    <div class="user-show__groupindex"><%= link_to "全グループ一覧画面", groups_path %></div>
+    <div class="user-show__groupindex"><%= link_to "グループ一覧", groups_path %></div>
     <div class="user-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
     <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
     <!-- <div class="user-show__logout"><%#= link_to "ログアウト", session_path(current_user.id), method: :delete %></div> -->
@@ -32,7 +32,6 @@
   <% end %>
   <div class="user-show__groups">所属グループ</div>
   <% @user.groups.each do |group| %>
-    <div class="user-show__groupname"><%= group.name %></div>
-    <div class="user-show__groupshow"><%= link_to "詳細", group_path(group.id) %></div>
+    <div class="user-show__groupshow"><%= link_to group.name, group_path(group.id) %></div>
   <% end %>
 </div>

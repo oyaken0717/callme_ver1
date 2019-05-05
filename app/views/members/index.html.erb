@@ -7,9 +7,6 @@
           <div class="member__item-out">
             <%= link_to '強制退会', member_path(id: member.id), method: :delete %>
           </div>
-          <div class="member__item-edit">
-            <%= link_to "編集", edit_user_path(member.user.id) %>
-          </div>
         <% end %>
       </div>
     <% end %>

@@ -4,6 +4,7 @@ describe 'post管理機能', type: :system do
   let(:user_b) { FactoryBot.create(:user, name: 'b@b.com', email: 'b@b.com', password: 'b@b.com') }
   let(:user_c) { FactoryBot.create(:user, name: 'c@c.com', email: 'c@c.com', password: 'c@c.com') }
   let!(:post_b) { FactoryBot.create(:post, title: 'post2', user: user_b, group: group_b) }
+  let!(:tag_b) { FactoryBot.create(:tag, name: 'tag2') }
   let!(:group_b) { FactoryBot.create(:group, name: 'group2') }
 
   before do
@@ -19,17 +20,19 @@ describe 'post管理機能', type: :system do
 
   describe 'post一覧表示機能' do
     context 'ユーザーBがログインし、グループ2に所属しているとき' do
+
       let (:login_user) { user_b }
 
       it 'ユーザーBが作成したpostが表示される' do
-        click_link("全グループ一覧画面")
-        binding.pry
-        page.first(".group-item__body-link").click_link
+        expect(page).to have_content 'ログインしました'
+        click_on "グループ一覧"
+        expect(page).to have_content 'グループ作成'
+        click_on"group2"
         click_on '参加する'
-        page.first(".group-item__body-link").click_link
+
+        click_on"group2"
         expect(page).to have_content 'グループ名: group2'
         click_on '仕事一覧'
-        visit group_posts_path(group_b)
         expect(page).to have_content 'post2'
       end
     end
@@ -38,8 +41,9 @@ describe 'post管理機能', type: :system do
       let (:login_user) { user_c }
 
       it 'ユーザー『B』が作成したpostが表示されない' do
-        click_link '全グループ一覧画面'
-        page.first(".group-item__body-link").click_on
+        click_on 'グループ一覧'
+        expect(page).to have_content 'group2'
+        click_link 'group2'
         expect(page).to have_no_content 'post2'
       end
     end
@@ -50,36 +54,77 @@ describe 'post管理機能', type: :system do
       let(:login_user) { user_b }
 
       before do
-        visit group_post_path(group_b, post_b)
+        expect(page).to have_content 'ログインしました'
+        click_on "グループ一覧"
+        click_on"group2"
+        click_on '参加する'
+        click_on"group2"
+        click_on '仕事一覧'
+        expect(page).to have_content 'post2'
       end
-      it_behaves_like 'ユーザーBが作成したpostが表示される'
+
+      it "postの詳細が見られる" do
+        click_link "post2"
+        expect(page).to have_content '投稿者'
+      end
     end
   end
 
   describe '新規作成機能' do
     let(:login_user) { user_b }
-    let(:post_titile) { post3 }
-
-    before do
-      visit new_group_post_path(group_b)
-      fill_in 'post_title', with: post_title
-      click_button '登録する'
-    end
+    let(:post_title) { post3 }
 
     context '新規作成画面で名称を入力した時' do
-      let(:post_title) { 'post3' }
+      before do
+        expect(page).to have_content 'ログインしました'
+        click_on "グループ一覧"
+        click_link"group2"
+        click_on '参加する'
+        click_link"group2"
+      end
 
       it '正常に登録される' do
+        click_link"仕事一覧"
+        expect(page).to have_content 'タグ'
+        click_link"新規作成"
+        fill_in 'post_title', with: 'post3'
+        click_button '登録する'
         expect(page).to have_content 'post3'
         click_button '登録する'
-        expect(page).to have_selector '.post-index__notice', text: '作成ができました。'
+        expect(page).to have_content '作成ができました。'
+      end
+
+      it 'タグ付きも正常に登録される' do
+        click_link"仕事一覧"
+        expect(page).to have_content 'タグ'
+        click_link"新規作成"
+        fill_in 'post_title', with: 'post3'
+        # check "task_label_ids_1"
+        #なんでもいいから 存在するtagのid１つ
+        # 全てのtag、配列に入った中から1つ
+        target_id = Tag.first.id
+        check "post_tag_ids_#{target_id}"
+        click_button '登録する'
+        expect(page).to have_content 'post3'
+        click_button '登録する'
+        expect(page).to have_content '作成ができました。'
       end
     end
 
     context '新規作成画面で名称を入力しなかったとき' do
-      let(:post_title) { '' }
+      before do
+        expect(page).to have_content 'ログインしました'
+        click_on "グループ一覧"
+        click_link"group2"
+        click_on '参加する'
+        click_link"group2"
+      end
 
       it 'エラーになる' do
+        click_link"仕事一覧"
+        click_link"新規作成"
+        fill_in 'post_title', with: ''
+        click_button '登録する'
         expect(page).to have_content 'Titleを入力してください'
       end
     end
@@ -90,15 +135,20 @@ describe 'post管理機能', type: :system do
       let (:login_user) { user_b }
 
       before do
-        visit edit_group_post_path(group_b, post_b)
+        click_on "グループ一覧"
+        click_link"group2"
+        click_on '参加する'
+        click_link"group2"
       end
 
       it "更新する" do
-        fill_in 'post_title', with: "post_4"
+        click_link"仕事一覧"
+        click_link"post2"
+        click_link"編集"
+        fill_in 'post_title', with: "post4"
         click_button '更新する'
         expect(page).to have_content '編集しました'
       end
-
     end
   end
 
@@ -107,20 +157,17 @@ describe 'post管理機能', type: :system do
       let(:login_user) { user_b }
 
       before do
-        visit group_post_path(group_b, post_b)
+        click_on "グループ一覧"
+        click_link"group2"
+        click_on '参加する'
+        click_link"group2"
       end
 
-      # it "削除する" do
-      #   expect(page).to have_content '詳細'
-      #   # click_link "削除"
-      #   binding.pry
-      #
-      #   page.first(".post-show__delete").click_on
-      #   # page.first(".post-show__delete").click_link
-      #   expect(page).to have_content '本当に削除しますか？'
-      #   # expect(page).to have_content '削除しました'
-      # end
-
+      it "削除する" do
+        click_link"仕事一覧"
+        click_link"post2"
+        click_link"削除"
+      end
     end
   end
 end

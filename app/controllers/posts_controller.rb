@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :post_access, only: [:new]
+  before_action :post_access
   before_action :check_correct_post, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :destroy, :update]
 
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
 
   def check_correct_post
     if current_user != Post.find(params[:id]).user
-      redirect_to posts_path
+      redirect_to group_posts_path
     end
   end
 

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :group_access, only: [:new]
+  before_action :group_access
+  before_action :required_admin, only: [:edit]
 
   def index
     @groups = Group.all
@@ -53,7 +54,10 @@ class GroupsController < ApplicationController
   end
 
   def group_access
-      redirect_to new_session_path unless logged_in?
+    redirect_to new_session_path unless logged_in?
   end
 
+  def required_admin
+    redirect_to groups_path unless current_user&.is_author(@group.id)
+  end
 end

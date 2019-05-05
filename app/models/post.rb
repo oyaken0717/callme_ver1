@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :group, inverse_of: :posts
-  belongs_to :user
+  belongs_to :user# optional: true
 
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user

@@ -36,7 +36,7 @@
       <div class="post-form__body-contentfield"><%= f.text_field :content %></div>
       <div class="post-form__body-tags">
         <% Tag.all.each do |tag| %>
-        <div class="post-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
+          <div class="post-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
           <div class="post-form__body-tagname"><%= tag.name %></div>
         <% end %>
       </div>
