@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :group_access, only: [:new]
+  before_action :group_access
   before_action :required_admin, only: [:edit]
 
   def index
