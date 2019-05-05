@@ -18,12 +18,10 @@
         <%= link_to '参加する', members_path(group_id: @group.id), method: :post, class: 'btn btn-primary' %>
       </div>
     <% end %>
-  <%# end %>
 
-  <%# if current_user == @group.members.user_id(current_user.id) %>
-  <% if current_user&.is_member(current_user) %>
+  <% if current_user.is_member(@group.id) %>
     <div class="group-show__postindex"><%= link_to "仕事一覧", group_posts_path(group_id: @group.id) %><br/></div>
-    <%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %><br>
+    <%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %>
     <div class="group-show__members">
       <% @group.members.each do |member| %>
         <div class="group-show__member">
