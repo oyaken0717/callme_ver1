@@ -10,7 +10,10 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to group_posts_path, notice: "#{favorite.post.user.name}さんの投稿をお気に入り解除しました"
+    if favorite = current_user.favorites.find_by(id: params[:id]).destroy
+      redirect_to group_posts_path, notice: "#{favorite.post.user.name}さんの投稿をお気に入り解除しました"
+    else
+      redirect_to group_posts_path
+    end
   end
 end
