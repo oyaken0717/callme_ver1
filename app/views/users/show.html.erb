@@ -2,9 +2,8 @@
   <%= notice %>
   <div class="user-show__username"><%= @user.name %>のページ</div>
   <% if current_user == @user %>
-    <div class="user-show__edit">
-      <%= link_to "編集", edit_user_path(@user.id||User.new) %>
-    </div>
+    <div class="user-show__edit"><%= link_to "編集", edit_user_path(@user.id||User.new) %></div>
+    <div class = "user-show__delete"><%= link_to "削除", user_path(@user.id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
   <% end %>
   <%#= link_to "戻る", users_path %>
   <div class="user-show__userimage">
