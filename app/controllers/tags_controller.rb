@@ -5,12 +5,10 @@ class TagsController < ApplicationController
       redirect_to groups_path, notice: "タグを作成しました。"
     else
       @groups = Group.all
-      @group = Group.find_by(id: params[:group_id])
-      @posts = Post.where(group_id: Group.find_by(id: params[:group_id]))
-      # render "create", notice: "もう一回チャレンジしてみてください！！"
-      flash.now[:notice] = "もう一回チャレンジしてみてください！！"
-      render 'groups/index'#, notice: "もう一回チャレンジしてみてください！！"
-
+      # @group = Group.find_by(id: params[:group_id])
+      # @posts = Post.where(group_id: Group.find_by(id: params[:group_id]))
+      flash.now[:notice] = "もう一度チャレンジしてみてください！！"
+      render 'groups/index'
     end
   end
 
