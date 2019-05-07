@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :destroy, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(group_id: Group.find_by(id: params[:group_id]))
+    # Page.where(category_id: 1)
+    # @group = Group.find_by(id:params[:group_id])
 # ーー検索フォーム（titleで）ーーーーーーーーーーーーーーーーーーーーーーーーーー
     if params[:post].present?
       @posts = Post.search_title(params[:post][:title])

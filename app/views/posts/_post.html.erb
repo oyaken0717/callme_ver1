@@ -1,6 +1,7 @@
 <div class="post-item">
-  <div class="post-item__show"><%#= link_to(post.title,"/posts/#{post.id}") %></div>
+  <!-- もしグループのidとpostのgroup_idが同じなら表示する -->
+  <%# if post.group_id == Post.find_by(id:params[:group_id]) %>
   <div class="post-item__show"><%= link_to(post.title,"/groups/#{post.group.id}/posts/#{post.id}") %></div>
-  <!-- <div class="post-item__show"><%#= post.title %></div> -->
-  <div class="post-item__image"><%= image_tag(post.image.url) if post.image.url %><br>
+  <div class="post-item__image"><%= image_tag(post.image.url) if post.image.url %><div>
+  <%# end %>
 </div>

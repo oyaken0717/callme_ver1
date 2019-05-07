@@ -4,7 +4,11 @@ class TagsController < ApplicationController
     if @tag.save
       redirect_to groups_path, notice: "タグを作成しました。"
     else
-      render "new", notice: "もう一回チャレンジしてみてください！！"
+      @groups = Group.all
+      # @group = Group.find_by(id: params[:group_id])
+      # @posts = Post.where(group_id: Group.find_by(id: params[:group_id]))
+      flash.now[:notice] = "もう一度チャレンジしてみてください！！"
+      render 'groups/index'
     end
   end
 
