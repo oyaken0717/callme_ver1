@@ -9,19 +9,24 @@
     <meta name="viewport" content=“width=device-width”>
   </head>
   <body>
-  <div class="application">
+  <div class="application clearfix">
     <div class="application__title"><%= link_to "callme",root_path %></div>
     <% unless logged_in? %>
       <div class="application__about"><%= link_to "callmeとは", about_path %></div>
     <% end %>
+
+    <div class="application__migi">
     <% if logged_in? %>
-      <div class="application__username"><%= link_to "#{current_user.name}さん", user_path(current_user.id) %></div>
+      <div class="application__username"><%= link_to current_user.name, user_path(current_user.id) %></div>
       <div class="application__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
     <% else %>
       <div class="application__makeuser"><%= link_to "新規登録", new_user_path %></div>
       <div class="application__login"><%= link_to "ログイン", new_session_path %></div>
     <% end %>
-    <%= yield %>
+    </div>
+
+
   </div>
+    <%= yield %>
   </body>
 </html>
