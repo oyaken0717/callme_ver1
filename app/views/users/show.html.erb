@@ -1,33 +1,23 @@
 <div class="user-show">
   <%= notice %>
-  <div class="user-show__username"><%= @user.name %>のページ</div>
-  <% if current_user == @user %>
-    <div class="user-show__edit"><%= link_to "編集", edit_user_path(@user.id||User.new) %></div>
-    <div class = "user-show__delete"><%= link_to "削除", user_path(@user.id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
-  <% end %>
-  <%#= link_to "戻る", users_path %>
-  <div class="user-show__userimage">
-    <%= image_tag (@user.image.url) if @user.image.present? %>
+  <div class="clearfix">
+    <div class="user-show__userimage"><%= image_tag (@user.image.url) if @user.image.present? %></div>
+    <div class="user-show__username"><%= @user.name %>のページ</div>
   </div>
-  <!-- <p>名前:</p> -->
-  <%#= @user.name %>
-  <div class="user-show__emailitem">メールアドレス:</div>
-  <div class="user-show__email"><%= @user.email %></div>
+  <div class="clearfix">
+    <div class="user-show__emailitem">メールアドレス:</div>
+    <div class="user-show__email"><%= @user.email %></div>
+  </div>
+  <div class="user-show__option clearfix">
+    <% if current_user == @user %>
+      <div class="user-show__edit"><%= link_to "編集", edit_user_path(@user.id||User.new) %></div>
+      <div class = "user-show__delete"><%= link_to "削除", user_path(@user.id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
+    <% end %>
+  </div>
 
   <% if logged_in? %>
-    <!-- <li><%#= link_to "参加グループ一覧", groups_path %></li> -->
-    <!-- <li><%#= link_to "P仕事一覧", group_posts_path %></li> -->
-
-    <%= link_to "ユーザー一覧", users_path %>
-  <%# end %>
-  <%# if logged_in? %>
+    <div class="user-show__userindex"><%= link_to "ユーザー一覧", users_path %></div>
     <div class="user-show__groupindex"><%= link_to "グループ一覧", groups_path %></div>
-    <div class="user-show__adminuser"><%#= link_to "全ユーザー管理画面", admin_users_path if current_user.admin? %></div>
-    <!-- <li><%#= link_to "#{current_user.name}さん", user_path(current_user.id) %></li> -->
-    <!-- <div class="user-show__logout"><%#= link_to "ログアウト", session_path(current_user.id), method: :delete %></div> -->
-  <%# else %>
-    <!-- <li><%#= link_to "新規登録", new_user_path %></li> -->
-    <!-- <li><%#= link_to "ログイン", new_session_path %></li> -->
   <% end %>
   <div class="user-show__groups">所属グループ</div>
   <% @user.groups.each do |group| %>

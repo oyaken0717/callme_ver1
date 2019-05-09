@@ -143,34 +143,78 @@
 }
 // show
 .user-show {
+  text-align: center;
+  margin: 15px;
+  &__userimage {
+    background-color: #EEEEEE;
+    float: left;
+    position: relative;
+    left: 39%;
+    width:50px;
+    height:50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    // border: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
   &__username {
-
+    margin: 0 auto;
+    float: left;
+    position: relative;
+    left: 50%;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__options {
+    position: relative;
+    overflow: hidden;
+  }
+  &__option {
+    position: relative;
+    left: 50%;
   }
   &__edit {
-
+    float: left;
+    position: relative;
+    left: -3%;
   }
-  &__userimage {
-
+  &__delete {
+    float: left;
+    position: relative;
+    left: -3%;
+  }
+  der-left-width: 2px;
   }
   &__emailitem {
-
+    float: left;
+    position: relative;
+    left: 39%;
   }
   &__email {
+    float: left;
+    position: relative;
+    left: 39%;
+  }
+  &__userindex {
 
   }
   &__groupindex {
 
   }
-  &__adminuser {
-
-  }
   &__groups {
-
-  }
-  &__groupname {
-
+    font-size: 20px;
+    font-weight: bold;
   }
   &__groupshow {
 
   }
 }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+ }
