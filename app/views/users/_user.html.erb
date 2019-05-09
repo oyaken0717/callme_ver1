@@ -2,7 +2,8 @@
   <% if user.id != current_user.id %>
     <div class="user-item__image"><%= image_tag(user.image.url) if user.image.present? %></div>
     <!-- <div class="user-item__username"><%#= link_to user.name, user_path(user.id) %></div> -->
-    <div class="user-item__username"><%= user.name %></div>
-    <div class="user-item__message"><%= link_to 'メッセージ',conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></div>
+    <!-- <div class="user-item__username"><%#= user.name %></div> -->
+    <!-- <div class="user-item__message"><%#= link_to 'メッセージ',conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></div> -->
+    <div class="user-item__message"><%= link_to user.name,conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></div>
   <% end %>
 </div>

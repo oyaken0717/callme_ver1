@@ -1,13 +1,17 @@
 <div class="user-index">
 <div class="user-index__title">User一覧</div>
+
   <%= form_with(model: User.new(), method: :get, local: true, url: users_path) do |f| %>
+  <div class = "clearfix" >
     <div class="user-index__namesearch">
       <%= f.text_field :name %>
     </div>
     <div class="user-index__submit">
       <%= f.submit '検索' %>
     </div>
-  <% end %><br>
+  </div>
+  <% end %>
+
   <div class="user-index__items">
     <%= render @users %>
   </div>
