@@ -1,10 +1,7 @@
 // index
 .user-index {
-  margin-bottom: 40vh;
+
   &__title {
-    width: 100vw;
-    padding: 20px;
-    margin: 20px 0;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -13,9 +10,17 @@
     // box-shadow: 1px 1px 10px 4px #808080;
   }
   &__namesearch {
-    width: 40vw;
-    margin: 20px auto;
-    text-align: center;
+    float: left;
+    position: relative;
+    left: 40%;
+    margin: 10px;
+  }
+  &__submit {
+    float: left;
+    position: relative;
+    left: 40%;
+    margin: 10px;
+    margin-left: 0;
   }
   &__items {
     width: 40vw;
@@ -23,12 +28,6 @@
     text-align: center;
   }
   &__notice {
-    width: 40vw;
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  &__submit {
     width: 40vw;
     margin: 20px auto;
     text-align: center;
@@ -73,26 +72,34 @@
 
   }
   &__message {
-
+    margin: 10px;
   }
 }
 // new
 .user-new {
+  text-align: center;
   &__title {
-
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 // edit
 .user-edit {
+  text-align: center;
   &__title {
 
   }
   &__show {
+    margin: 10px;
 
   }
 }
 // _form
+#user_image {
+    margin: 0 auto
+}
 .user-form{
+
   &__errors{
 
   }
@@ -103,41 +110,49 @@
 
   }
   &__body {
+    text-align: center;
+    margin: 0 auto;
     &-profilelabel {
 
     }
     &-temporaryimage {
-
+      background-color: #EEEEEE;
+      width:50px;
+      height:50px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto;
+      overflow: hidden;
     }
     &-imagefield {
 
     }
     &-namelabel {
-
+      margin-top: 10px;
     }
     &-namefield {
 
     }
     &-maillabel {
-
+      margin-top: 10px;
     }
     &-emailfield {
 
     }
     &-passwordlabel {
-
+      margin-top: 10px;
     }
     &-passwordfield {
 
     }
     &-repasswordlabel {
-
+      margin-top: 10px;
     }
     &-repasswordfield {
 
     }
     &-submit {
-
+      margin-top: 10px;
     }
   }
 }
@@ -207,6 +222,7 @@
   &__groups {
     font-size: 20px;
     font-weight: bold;
+    margin: 10px;
   }
   &__groupshow {
 

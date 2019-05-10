@@ -1,12 +1,11 @@
 <div class="group-index">
   <div class="group-index__title">グループ一覧</div>
   <div class="group-index__notice"><%= notice %></div>
+  <div class="group-index__new"><%= link_to 'グループ作成', new_group_path, class: 'group-index__new-link' %></div>
   <div class="group-index__items">
     <%= render  @groups %>
   </div>
-  <div class="group-index__new">
-    <%= link_to 'グループ作成', new_group_path, class: 'group-index__new-link' %>
-  </div>
+
 </div>
 
 

@@ -1,13 +1,11 @@
 .group-index {
-  margin-bottom: 40vh;
+
   &__items {
     width: 40vw;
     margin: 20px auto;
     text-align: center;
   }
   &__title {
-    width: 100vw;
-    padding: 20px;
     margin: 20px 0;
     text-align: center;
     font-size: 24px;
@@ -34,7 +32,7 @@
   border: solid 1px #C0C0C0;
   margin: 8px;
   &__body {
-    padding: 10px;
+
     &-username {
       font-size: 20px;
       font-weight: bold;
@@ -42,25 +40,18 @@
       border-bottom: solid 1px #C0C0C0;
     }
     &-links {
-      width: 80%;
-      margin: 5px auto;
-      padding: 5px;
-      height: 44px;;
-      clear: both;
+      margin: 10px;
     }
     &-link {
-      float: left;
-      margin: 0 5px;
+
     }
   }
 }
 
 // new
 .group-new {
-  margin-bottom: 40vh;
+  text-align: center;
   &__title {
-    width: 100vw;
-    padding: 20px;
     margin: 20px 0;
     text-align: center;
     font-size: 24px;
@@ -73,8 +64,11 @@
 
 // edit
 .group-edit {
+  text-align: center;
   &__title {
-
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
   }
 }
 // form
@@ -99,20 +93,25 @@
 
     }
     &-submit {
-
+      margin: 10px;
     }
   }
 }
 // show
 .group-show {
+  text-align: center;
+  margin: 10px;
   &__title {
-
+    font-size: 24px;
+    font-weight: bold;
   }
   &__groupindex {
 
   }
   &__groupname {
-
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__adminmember {
 
@@ -124,10 +123,11 @@
 
   }
   &__postindex {
-
+    margin: 10px;
+    margin-bottom: 0px;
   }
   &__members {
-
+    margin: 10px;
   }
   &__member {
 
