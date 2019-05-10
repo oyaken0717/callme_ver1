@@ -1,16 +1,10 @@
 // index
 .post-index {
-  margin-bottom: 40vh;
   &__title {
-    width: 100vw;
-    padding: 20px;
     margin: 20px 0;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    // color: aqua;
-    // background-color: #808080;
-    // box-shadow: 1px 1px 10px 4px #808080;
   }
   &__notice {
     width: 40vw;
@@ -27,10 +21,31 @@
     margin: 20px auto;
     text-align: center;
     &_searchtitle {
-
+      float: left;
+      position: relative;
+      left: 19%;
+      margin: 10px;
     }
     &_submit {
-
+      float: left;
+      position: relative;
+      left: 15%;
+      margin: 10px;
+    }
+    &_taglabel {
+      text-align: center;
+    }
+    &_tagfield {
+      float: left;
+      position: relative;
+      left: 38%;
+      margin: 10px;
+    }
+    &_tagsubmit {
+      float: left;
+      position: relative;
+      left: 36%;
+      margin: 10px;
     }
   }
   &__items {
@@ -41,21 +56,25 @@
 }
 // _post
 .post-item {
-  border-radius: 15px;
-  border-width: 1px;
-  border: solid 1px #C0C0C0;
-  margin: 8px;
+
   &__show {
-    padding: 10px;
+    float: left;
+    position: relative;
+    left: 36%;
   }
   &__image {
-    padding: 10px;
+    float: left;
+    position: relative;
+    left: 36%;
   }
 }
 //new
 .post-new {
+  text-align: center;
   &__title {
-
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
   }
 }
 // edit
@@ -65,6 +84,9 @@
   }
 }
 // _form
+#post_image {
+    margin: 0 auto
+}
 .post-form{
   &__errors{
 
@@ -76,7 +98,7 @@
 
   }
   &__index {
-
+    margin: 10px;
   }
   &__body {
     &-imagelabel {
@@ -104,10 +126,16 @@
 
     }
     &-tagsbox {
-
+      float: left;
+      position: relative;
+      left: 36%;
+      margin: 10px;
     }
     &-tagname {
-
+      float: left;
+      position: relative;
+      left: 48%;
+      margin: 10px;
     }
     &-grouplabel {
 
@@ -123,32 +151,69 @@
 
 // show
 .post-show {
+  text-align: center;
   &__title {
-
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__edit {
-
+    float: left;
+    position: relative;
+    left: 47%;
   }
   &__delete {
-
+    float: left;
+    position: relative;
+    left: 48%;
   }
   &__backposts {
 
   }
-  &__block {
-
-  }
   &__posterimage {
-
+    background-color: #EEEEEE;
+    float: left;
+    position: relative;
+    left: 44%;
+    width:50px;
+    height:50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    // border: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
   }
   &__username {
-
+    float: left;
+    position: relative;
+    left: 46%;
   }
   &__postimage {
-
+    // float: left;
+    // position: relative;
+    // left: 39%;
+  }
+  &__block1 {
+    margin-top: 10px;
+  }
+  &__block2 {
+    float: left;
+    position: relative;
+    left: 40%;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__posttitle {
-
+    float: left;
+    position: relative;
+    left: 41%;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__postcontent {
 
@@ -224,3 +289,9 @@
 
   }
 }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+ }

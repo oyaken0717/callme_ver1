@@ -16,7 +16,7 @@
     <%= form_with(model:[@post.group, @post], local: true, url: choose_new_or_edit) do |f| %>
     <%#= サイトからひっぱてきた form_with(model:[@board, Comment.new]) do |form| %>
       <%= hidden_field_tag "group_id", @post.group_id %>
-      <div class="post-form__body-imagelabel"><%= f.label :写真 %></div>
+      <div class="post-form__body-imagelabel"><%= f.label :画像 %></div>
       <div class="post-form__body-imageurl"><%= image_tag(@post.image.url) if @post.image.url %></div>
       <%= f.hidden_field :image_cache %>
       <div class="post-form__body-imagefield"><%= f.file_field :image %></div>
@@ -26,8 +26,10 @@
       <div class="post-form__body-contentfield"><%= f.text_field :content %></div>
       <div class="post-form__body-tags">
         <% Tag.all.each do |tag| %>
+        <div class = "clearfix">
           <div class="post-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
           <div class="post-form__body-tagname"><%= tag.name %></div>
+        </div>
         <% end %>
       </div>
       <div class="post-form__body-grouplabel"><%#= f.label :グループ %></div>

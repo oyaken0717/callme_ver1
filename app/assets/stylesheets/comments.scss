@@ -1,6 +1,6 @@
 // index
 .comment-index {
-  margin-bottom: 40vh;
+
   &__title {
     width: 100vw;
     padding: 20px;
@@ -20,28 +20,24 @@
 }
 
 .comment-item {
+  text-align: center;
   border-radius: 15px;
   border-width: 1px;
   border: solid 1px #C0C0C0;
   margin: 8px;
   &__username {
-    padding: 10px;
 
   }
   &__edit {
-    padding: 10px;
 
   }
   &__destroy {
-    padding: 10px;
 
   }
   &__content {
-    padding: 10px;
 
   }
   &__notice {
-    padding: 10px;
 
   }
 }
@@ -101,4 +97,8 @@
   &__submit {
 
   }
+}
+.each_other_comment {
+  text-align: center;
+  margin: 0 auto;
 }
