@@ -1,23 +1,45 @@
 // top
 .home-top {
-  // background-image: url(<%#= asset-path("home.jpeg") %>)
-  // background-image: url("/images/home.jpeg");
-  // height: 800px;
-  // background-size:cover;
-  &__content img{
+
+  &__contents {
+    position:relative
+  }
+  &__block1 {
+    position: absolute;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 39px;
+    font-family :Quicksand, sans-serif;
+
+    top: 20%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+  }
+  &__block2 {
+    position: absolute;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    font-family :Quicksand, sans-serif;
+
+    top: 26%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+  }
+  &__image img {
     width: 100%;
     height: 100%;
   }
-  &__blocks {
-    float: left;
-  }
-  &__block {
-
-  }
-  // &__image img {
-  //   width: 100%;
-  //   height: 100%;
-  // }
 }
 // about
 .home-about {
@@ -28,6 +50,6 @@
     font-size: 24px;
   }
   &__block {
-
+    margin: 10px;
   }
 }
