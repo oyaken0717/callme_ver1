@@ -1,6 +1,6 @@
 <div class="user-index">
 <div class="user-index__title">User一覧</div>
-
+<div class="user-index__back"><%= link_to '戻る', user_path(current_user.id) %></div>
   <%= form_with(model: User.new(), method: :get, local: true, url: users_path) do |f| %>
   <div class = "clearfix" >
     <div class="user-index__namesearch"><%= f.text_field :name %></div>
