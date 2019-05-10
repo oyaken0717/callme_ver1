@@ -5,8 +5,8 @@
     <div class="user-show__username"><%= @user.name %>のページ</div>
   </div>
   <div class="clearfix">
-    <div class="user-show__emailitem">メールアドレス:</div>
-    <div class="user-show__email"><%= @user.email %></div>
+    <div class="user-show__emailitem"><%= "メールアドレス: #{ @user.email } " %></div>
+    <!-- <div class="user-show__email"><%#= @user.email %></div> -->
   </div>
   <div class="user-show__option clearfix">
     <% if current_user == @user %>
