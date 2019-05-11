@@ -9,6 +9,9 @@
     // background-color: #808080;
     // box-shadow: 1px 1px 10px 4px #808080;
   }
+  &__back {
+    text-align: center;
+  }
   &__namesearch {
     float: left;
     position: relative;
@@ -175,6 +178,7 @@
     border-top-width: 1px;
     border-bottom-width: 1px;
     border-right-width: 1px;
+  }
   &__username {
     margin: 0 auto;
     // margin: 15px;
@@ -196,23 +200,22 @@
     float: left;
     position: relative;
     left: -3%;
+    margin-right: 10px;
+
+    width: 50px;
+    border: 1px solid #333;
   }
   &__delete {
     float: left;
     position: relative;
     left: -3%;
-  }
-  der-left-width: 2px;
-  }
-  &__emailitem {
-    float: left;
-    position: relative;
-    left: 39%;
+
+    width: 50px;
+    border: 1px solid #333;
   }
   &__email {
     float: left;
     position: relative;
-    left: 39%;
   }
   &__userindex {
 
@@ -221,6 +224,10 @@
 
   }
   &__groups {
+    padding-top: 10px;
+    border-top: solid 1px;
+    border-color: #DDDDDD;
+
     font-size: 20px;
     font-weight: bold;
     margin: 10px;

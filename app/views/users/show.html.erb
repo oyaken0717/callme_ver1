@@ -5,8 +5,8 @@
     <div class="user-show__username"><%= @user.name %>のページ</div>
   </div>
   <div class="clearfix">
-    <div class="user-show__emailitem">メールアドレス:</div>
-    <div class="user-show__email"><%= @user.email %></div>
+    <div class="user-show__emailitem"><%= "メールアドレス: #{ @user.email } " %></div>
+    <!-- <div class="user-show__email"><%#= @user.email %></div> -->
   </div>
   <div class="user-show__option clearfix">
     <% if current_user == @user %>
@@ -16,8 +16,8 @@
   </div>
 
   <% if logged_in? %>
-    <div class="user-show__userindex"><%= link_to "ユーザー一覧", users_path %></div>
-    <div class="user-show__groupindex"><%= link_to "グループ一覧", groups_path %></div>
+    <!-- <div class="user-show__userindex"><%#= link_to "ユーザー一覧", users_path %></div> -->
+    <!-- <div class="user-show__groupindex"><%#= link_to "グループ一覧", groups_path %></div> -->
   <% end %>
   <div class="user-show__groups">所属グループ</div>
   <% @user.groups.each do |group| %>
