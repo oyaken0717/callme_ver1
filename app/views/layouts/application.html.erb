@@ -17,6 +17,8 @@
 
     <div class="application__migi">
     <% if logged_in? %>
+      <div class="application__userindex"><%= link_to "ユーザー一覧", users_path %></div>
+    　<div class="application__groupindex"><%= link_to "グループ一覧", groups_path %></div>
       <div class="application__username"><%= link_to current_user.name, user_path(current_user.id) %></div>
       <div class="application__logout"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
     <% else %>
