@@ -8,6 +8,8 @@ ja:
         password: パスワード
       group:
         name: グループ名
+      post:
+        title: タイトル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
