@@ -25,9 +25,11 @@
     <%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %>
     <div class="group-show__members">
       <% @group.members.each do |member| %>
-        <div class="group-show__member">
-          <%= link_to member.user.name, conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %>
-        </div>
+        <% unless current_user.id == member.user_id%>
+          <div class="group-show__member">
+            <%= link_to member.user.name, conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>

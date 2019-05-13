@@ -26,6 +26,14 @@
     <% end %>
   </div>
   <%= form_with(model: [@conversation, @message]) do |f| %>
+
+    <% if @message.errors.any? %>
+      <%= @message.errors.count %>件のエラーがあります。
+      <% @message.errors.full_messages.each do |msg|%>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
     <div class="message-index__text-area">
       <%= f.text_area :body, class: "form-control" %>
     </div>
