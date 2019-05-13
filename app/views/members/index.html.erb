@@ -1,6 +1,7 @@
 <div class="member-index">
   <div class="member-index__title">グループ一メンバー覧</div>
-  <div class="member__items">
+  <div class="member-index__back"><%= link_to '戻る', group_path(@group) %></div>
+  <div class="member__items clearfix">
     <% @group.members.each do |member| %>
       <div class="member__item-username"><%= member.user.name %></div>
         <% if member.user_is_author == false %>

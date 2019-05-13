@@ -15,7 +15,10 @@
     text-align: center;
   }
   &__new {
-    width: 40vw;
+    padding-top: 10px;
+    border-top: solid 1px;
+    border-color: #DDDDDD;
+
     margin: 20px auto;
     text-align: center;
   }
@@ -24,31 +27,30 @@
     margin: 20px auto;
     text-align: center;
     &_searchtitle {
-      float: left;
-      position: relative;
-      left: 19%;
+      // float: left;
+      // position: relative;
+      // left: 19%;
       margin: 10px;
     }
     &_submit {
-      float: left;
-      position: relative;
-      left: 15%;
+      // float: left;
+      // position: relative;
+      // left: 15%;
       margin: 10px;
-    }
-    &_taglabel {
-      text-align: center;
     }
     &_tagfield {
-      float: left;
-      position: relative;
-      left: 38%;
+      // float: left;
+      // position: relative;
+      // left: 38%;
       margin: 10px;
+      text-align: center;
     }
     &_tagsubmit {
-      float: left;
-      position: relative;
-      left: 36%;
+      // float: left;
+      // position: relative;
+      // left: 36%;
       margin: 10px;
+      text-align: center;
     }
   }
   &__items {
@@ -61,14 +63,14 @@
 .post-item {
 
   &__show {
-    float: left;
-    position: relative;
-    left: 36%;
+    // float: left;
+    // position: relative;
+    // left: 36%;
   }
   &__image {
-    float: left;
-    position: relative;
-    left: 36%;
+    // float: left;
+    // position: relative;
+    // left: 36%;
   }
 }
 //new
@@ -165,11 +167,17 @@
     float: left;
     position: relative;
     left: 47%;
+
+    width: 50px;
+    border: 1px solid #333;
   }
   &__delete {
     float: left;
     position: relative;
     left: 48%;
+
+    width: 50px;
+    border: 1px solid #333;
   }
   &__backposts {
 

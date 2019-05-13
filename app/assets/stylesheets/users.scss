@@ -164,20 +164,7 @@
   text-align: center;
   margin: 15px;
   &__userimage {
-    // background-color: #EEEEEE;
-    // // float: left;
-    // // position: relative;
-    // // left: 39%;
-    // width:50px;
-    // height:50px;
-    // object-fit: cover;
-    // // border-radius: 50%;
-    // // margin: 0 auto;
-    // overflow: hidden;
-    // // // border: solid;
-    // // border-top-width: 1px;
-    // // border-bottom-width: 1px;
-    // // border-right-width: 1px;
+
   }
   &__username {
     // margin: 0 auto;
@@ -188,41 +175,30 @@
     font-size: 24px;
     font-weight: bold;
   }
-  &__options {
-    position: relative;
-    overflow: hidden;
-  }
   &__option {
-    position: relative;
     left: 50%;
   }
   &__edit {
-    float: left;
-    position: relative;
-    left: -3%;
-    margin-right: 10px;
-
-    width: 50px;
-    border: 1px solid #333;
+    // float: left;
+    // position: relative;
+    // left: -3%;
+    // margin-right: 10px;
+    //
+    // width: 50px;
+    // border: 1px solid #333;
   }
   &__delete {
-    float: left;
-    position: relative;
-    left: -3%;
-
-    width: 50px;
-    border: 1px solid #333;
+    // float: left;
+    // position: relative;
+    // left: -3%;
+    //
+    // width: 50px;
+    // border: 1px solid #333;
   }
-  &__email {
-    float: left;
-    position: relative;
-  }
-  &__userindex {
+  &__emailitem {
 
   }
-  &__groupindex {
 
-  }
   &__groups {
     padding-top: 10px;
     border-top: solid 1px;

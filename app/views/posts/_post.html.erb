@@ -1,4 +1,4 @@
 <div class="post-item clearfix">
-  <div class="post-item__image"><%= image_tag(post.image.url) if post.image.url %><div>
+  <!-- <div class="post-item__image"><%#= image_tag(post.image.url) if post.image.url %><div> -->
   <div class="post-item__show"><%= link_to(post.title,"/groups/#{post.group.id}/posts/#{post.id}") %></div>
 </div>

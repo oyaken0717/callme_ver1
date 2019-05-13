@@ -26,20 +26,9 @@
     <% end %>
   </div>
   <%= form_with(model: [@conversation, @message]) do |f| %>
-
-    <% if @message.errors.any? %>
-      <%= @message.errors.count %>件のエラーがあります。
-      <% @message.errors.full_messages.each do |msg|%>
-        <%= msg %>
-      <% end %>
-    <% end %>
-
-    <div class="message-index__text-area">
-      <%= f.text_area :body, class: "form-control" %>
-    </div>
-      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <div class="message-index__submit">
-      <%= f.submit "メッセージを送る" %>
-    </div>
+    <div class="message-index__notice"><%= notice %></div>
+    <div class="message-index__text-area"><%= f.text_area :body, class: "form-control" %></div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div class="message-index__submit"><%= f.submit "メッセージを送る" %></div>
   <% end %>
 </div>

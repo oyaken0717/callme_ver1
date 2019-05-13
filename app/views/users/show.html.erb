@@ -4,10 +4,8 @@
     <div class="user-show__userimage"><%= image_tag (@user.image.url) if @user.image.present? %></div>
     <div class="user-show__username"><%= @user.name %>のページ</div>
   </div>
-  <div class="clearfix">
     <div class="user-show__emailitem"><%= "メールアドレス: #{ @user.email } " %></div>
     <!-- <div class="user-show__email"><%#= @user.email %></div> -->
-  </div>
   <div class="user-show__option clearfix">
     <% if current_user == @user %>
       <div class="user-show__edit"><%= link_to "編集", edit_user_path(@user.id||User.new) %></div>
@@ -15,10 +13,6 @@
     <% end %>
   </div>
 
-  <% if logged_in? %>
-    <!-- <div class="user-show__userindex"><%#= link_to "ユーザー一覧", users_path %></div> -->
-    <!-- <div class="user-show__groupindex"><%#= link_to "グループ一覧", groups_path %></div> -->
-  <% end %>
   <div class="user-show__groups">所属グループ</div>
   <% @user.groups.each do |group| %>
     <div class="user-show__groupshow"><%= link_to group.name, group_path(group.id) %></div>

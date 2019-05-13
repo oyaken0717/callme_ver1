@@ -2,24 +2,25 @@
   <div class="post-index__title">仕事一覧</div>
   <div class="post-index__notice"><%= notice %></div>
   <div class="post-index__back"><%= link_to '戻る', group_path(@posts.first.group_id) %></div>
+
+
   <%= form_with(model: Tag.new, local:true, url: group_tags_path) do |f| %><br>
   <div class = "clearfix" >
-    <!-- <div class="post-index__body_taglabel"><%#= f.label :タグ %></div> -->
     <div class="post-index__body_tagfield"><%= f.text_field :name %></div>
     <div class="post-index__body_tagsubmit"><%= f.submit "タグ作成" %></div>
   </div>
   <% end %>
-  <div class="post-index__new"><%= link_to "新規作成 ", new_group_post_path %></div>
+
   <%# -----レベルの小さい順に並べる------------------------------------------------ %>
   <%# -----検索フォーム---------------------------------------------------------- %>
   <div class="post-index__body">
     <%= form_with(model: @posts, method: :get, local: true, url: group_posts_path) do |f| %>
-    <div class = "clearfix" >
       <div class="post-index__body_searchtitle"><%= f.text_field :title %></div>
       <div class="post-index__body_submit"><%= f.submit '仕事検索' %></div>
-    </div>
     <% end %>
   </div>
+
+  <div class="post-index__new"><%= link_to "新規作成 ", new_group_post_path %></div>
 
   <div class="post-index__items">
     <%= render @posts %>
