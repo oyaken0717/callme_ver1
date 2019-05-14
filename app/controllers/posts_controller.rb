@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :post_access
+  before_action :is_member
   before_action :check_correct_post, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :destroy, :update]
+
 
   def index
     @posts = Post.where(group_id: Group.find_by(id: params[:group_id]))
@@ -28,6 +30,7 @@ class PostsController < ApplicationController
   # end
 #C Aに、プラスBver
   def new
+
     if params[:back]
       @post = Post.new(post_params)
     else
@@ -98,5 +101,11 @@ class PostsController < ApplicationController
 
   def post_access
       redirect_to new_session_path unless logged_in?
+  end
+
+  def is_member(group = Group.find_by(id: params[:group_id]))
+    redirect_to groups_path if group&.members.length == 0
+    join_member = group&.members.select { |member| member&.user_id == current_user.id }[0]
+    redirect_to groups_path if join_member.nil?
   end
 end
