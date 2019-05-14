@@ -22,6 +22,7 @@
   <% if current_user.is_member(@group.id) %>
     <!-- <div class="group-show__postindex"><%#= link_to "グループの仕事一覧", group_posts_path(group_id: @group.id) %></div> -->
     <div class="group-show__postindex"><%= link_to "グループの仕事一覧", group_posts_path(@group.id) %></div>
+    <div class="group-show__new"><%= link_to "新規作成 ", new_group_post_path(@group) %></div>
     <%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %>
     <div class="group-show__members">
       <% @group.members.each do |member| %>
