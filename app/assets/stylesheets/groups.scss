@@ -128,9 +128,17 @@
   &__postindex {
     margin: 10px;
     margin-bottom: 0px;
+
+    padding-top: 10px;
+    border-top: solid 1px;
+    border-color: #DDDDDD;
   }
   &__members {
     margin: 10px;
+
+    // padding-top: 10px;
+    // border-top: solid 1px;
+    // border-color: #DDDDDD;
   }
   &__member {
 
