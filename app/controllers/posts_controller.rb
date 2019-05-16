@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :post_access
+  # before_action :is_member, only: [:index, :new, :show, :create, :edit, :update]
   before_action :is_member
+  # before_action :is_member2, only: [:destroy]
   before_action :check_correct_post, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :destroy, :update]
 
@@ -108,4 +110,11 @@ class PostsController < ApplicationController
     join_member = group&.members.select { |member| member&.user_id == current_user.id }[0]
     redirect_to groups_path if join_member.nil?
   end
+
+  # def is_member2
+  #   group = Group.find(params[:group_id])
+  #   redirect_to group_posts_path(group) if group&.members.length == 0
+  #   join_member = group&.members.select { |member| member&.user_id == current_user.id }[0]
+  #   redirect_to group_posts_path(group) if join_member.nil?
+  # end
 end
