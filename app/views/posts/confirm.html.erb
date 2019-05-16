@@ -16,8 +16,8 @@
       <div class="post-confirm__body-group">
         <%= f.hidden_field :group %>
       </div>
-      <div class="post-confirm__image">写真</div>
-      <div class="post-confirm__tag">
+      <div class="post-confirm__imagetitle">画像</div>
+      <div class="post-confirm__image">
         <%= image_tag(@post.image.url) if @post.image.url %><br>
       </div>
       <div class="post-confirm__title">タイトル</div>

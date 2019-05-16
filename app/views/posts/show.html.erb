@@ -6,10 +6,10 @@
 </div>
 
 <div class = "post-show__backposts"><%= link_to "戻る", group_posts_path %></div>
-<div class = "post-show__block1">投稿者</div>
+<div class = "post-show__block1"><%= "投稿者 #{ @post.user.name }" %></div>
 <div class = clearfix>
-  <div class = "post-show__posterimage"><%= image_tag (@post.user.image.url) if @post.user.image.present? %></div>
-  <div class = "post-show__username"><%= @post.user.name %></div>
+  <!-- <div class = "post-show__posterimage"><%#= image_tag (@post.user.image.url) if @post.user.image.present? %></div> -->
+  <!-- <div class = "post-show__username"><%#= @post.user.name %></div> -->
 </div>
 
 <div class = "post-show__postimage"><%= image_tag (@post.image.url) if @post.image.url %></div>
