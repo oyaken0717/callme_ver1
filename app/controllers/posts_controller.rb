@@ -14,6 +14,10 @@ class PostsController < ApplicationController
 # ーー検索フォーム（titleで）ーーーーーーーーーーーーーーーーーーーーーーーーーー
     if params[:post].present?
       @posts = Post.search_title(params[:post][:title])
+        if @posts.nil? #もし@postsがnilであれば
+          @group = Group.find_by(id: params[:group_id]) #まずGroupのidをparamsからとって
+          redirect_to group_posts_path(@group) #リダイレクトさせる
+        end
     end
     # @posts = Post.all.order(仕事の難しさレベル: :asc) if params[:仕事の難しさレベル] == "true"
   end
