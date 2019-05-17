@@ -207,7 +207,15 @@
     // float: left;
     // position: relative;
     // left: 39%;
+    margin: 10px;
   }
+  &__postimage img {
+    // float: left;
+    // position: relative;
+    // left: 39%;
+    width: 40%;
+  }
+
   &__block1 {
     margin-top: 10px;
   }
@@ -271,11 +279,14 @@
 
     }
   }
-  &__image {
+  &__imagetitle {
 
   }
-  &__tag {
-
+  &__image {
+    margin: 10px;
+  }
+  &__image img {
+    width: 40%;
   }
   &__title {
 
