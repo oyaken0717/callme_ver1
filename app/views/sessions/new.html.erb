@@ -9,12 +9,13 @@
   <div class="session-new__body">
     <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
-    <% if @user&.errors&.any? %>
-      <%= @user.errors.count %>件のエラーがあります。
-      <% @user.errors.full_messages.each do |msg|%>
-        <%= msg %>
-      <% end %>
-    <% end %>
+    <%# if @user&.errors&.any? %>
+      <%#= @user.errors.count %>
+      <%# 件のエラーがあります。 %>
+      <%# @user.errors.full_messages.each do |msg|%>
+        <%#= msg %>
+      <%# end %>
+    <%# end %>
 
       <div class="session-new__body-emaillabel"><%= f.label :メールアドレス %></div>
       <div class="session-new__body-emailfield"><%= f.email_field :email %></div>

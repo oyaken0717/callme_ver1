@@ -5,33 +5,33 @@ class SessionsController < ApplicationController
   end
 
 
-  # def create
-  #   user = User.find_by(email: params[:session][:email].downcase)
-  #   if user && user.authenticate(params[:session][:password])
-  #     session[:user_id] = user.id
-  #     flash[:notice] = "ログインしました"
-  #     redirect_to user_path(user.id)
-  #   else
-  #     flash.now[:danger] = "ログイン失敗"
-  #     render "new"
-  #   end
-  # end
-
   def create
-    # @user = User.find_by(email: params[:session][:email].downcase)
-    # @user = User.find_by(email: params[:session][:email].downcase)
-    @user = User.find_by(params.require(:session).permit(:email, :password))
-    # Blog.create(params.require(:blog).permit(:title, :content))
-    @user&.email = @user&.email&.downcase
-    if @user && @user.authenticate(params[:session][:password])
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "ログインしました"
-      redirect_to user_path(@user.id)
+      redirect_to user_path(user.id)
     else
-      # flash.now[:danger] = "ログイン失敗"
+      flash.now[:danger] = "ログイン失敗。メールアドレスやパスワードをご確認ください。"
       render "new"
     end
   end
+
+  # def create
+  #   # @user = User.find_by(email: params[:session][:email].downcase)
+  #   # @user = User.find_by(email: params[:session][:email].downcase)
+  #   @user = User.find_by(params.require(:session).permit(:email, :password))
+  #   # Blog.create(params.require(:blog).permit(:title, :content))
+  #   @user&.email = @user&.email&.downcase
+  #   if @user && @user.authenticate(params[:session][:password])
+  #     session[:user_id] = user.id
+  #     flash[:notice] = "ログインしました"
+  #     redirect_to user_path(@user.id)
+  #   else
+  #     # flash.now[:danger] = "ログイン失敗"
+  #     render "new"
+  #   end
+  # end
 
   def destroy
     session.delete(:user_id)
