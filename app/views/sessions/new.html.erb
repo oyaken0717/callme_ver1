@@ -1,12 +1,21 @@
 <div class="session-new">
   <div class="session-new__title">ログイン</div>
   <% flash.each do |key, value| %>
-    <div class="session-new__flash">
+    <!-- <div class="session-new__flash"> -->
       <%= content_tag(:div, value, class: "#{key}") %>
-    </div>
+    <!-- </div> -->
   <% end %>
+
   <div class="session-new__body">
     <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+    <% if @user&.errors&.any? %>
+      <%= @user.errors.count %>件のエラーがあります。
+      <% @user.errors.full_messages.each do |msg|%>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
       <div class="session-new__body-emaillabel"><%= f.label :メールアドレス %></div>
       <div class="session-new__body-emailfield"><%= f.email_field :email %></div>
       <div class="session-new__body-passwordlabel"><%= f.label :パスワード %></div>
