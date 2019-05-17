@@ -12,12 +12,12 @@
 
     <div class="user-form__body">
       <%= form_with(model: @user, local: true) do |f| %>
-        <% if action_name == "edit" %>
+        <%# if action_name == "edit" %>
           <div class="user-form__body-profilelabel"><%= f.label :プロフィール画像 %></div>
           <div class="user-form__body-temporaryimage"><%= image_tag(@user.image.url) if @user.image.present? %></div>
           <div class="user-form__body-imagefield"><%= f.file_field :image %></div>
           <%= f.hidden_field :image_cache %>
-        <% end %>
+        <%# end %>
         <div class="user-form__body-namelabel"><%= f.label :名前 %><br>
         <div class="user-form__body-namefield"><%= f.text_field :name %><br>
         <div class="user-form__body-maillabel"><%= f.label :メールアドレス %><br>
