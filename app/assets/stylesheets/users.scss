@@ -119,7 +119,7 @@
 
     }
     &-temporaryimage {
-      
+
     }
     &-imagefield {
 
@@ -173,21 +173,20 @@
     left: 50%;
   }
   &__edit {
-    // float: left;
-    // position: relative;
-    // left: -3%;
-    // margin-right: 10px;
-    //
-    // width: 50px;
-    // border: 1px solid #333;
+    border: solid 1px;
+    width: 5%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
   &__delete {
-    // float: left;
-    // position: relative;
-    // left: -3%;
-    //
-    // width: 50px;
-    // border: 1px solid #333;
+    border: solid 1px;
+    width: 5%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
   &__emailitem {
 

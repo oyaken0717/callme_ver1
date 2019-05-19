@@ -1,19 +1,16 @@
 // index
 .comment-index {
-
+  text-align: center;
   &__title {
-    width: 100vw;
-    padding: 20px;
+    // padding: 20px;
     margin: 20px 0;
-    text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     // color: aqua;
     // background-color: #808080;
     // box-shadow: 1px 1px 10px 4px #808080;
   }
   &__items {
-    width: 40vw;
     margin: 20px auto;
     text-align: center;
   }
@@ -40,6 +37,11 @@
   &__notice {
 
   }
+}
+.for_edit_comment {
+  padding-left: 100px;
+  padding-right: 100px;
+  border-radius: 15px;
 }
 // _form
 .comment-form {
@@ -100,5 +102,8 @@
 }
 .each_other_comment {
   text-align: center;
-  margin: 0 auto;
+  // margin: 0 auto;
+  border: solid 1px;
+  margin: 10px;
+  border-radius: inherit;
 }

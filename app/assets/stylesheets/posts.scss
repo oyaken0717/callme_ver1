@@ -158,7 +158,7 @@
 // show
 .post-show {
   text-align: center;
-  &__title {
+  &__posttitle {
     margin: 20px 0;
     font-size: 24px;
     font-weight: bold;
@@ -227,12 +227,9 @@
     font-size: 24px;
     font-weight: bold;
   }
-  &__posttitle {
-    float: left;
-    position: relative;
-    left: 41%;
-    margin: 20px 0;
-    font-size: 24px;
+  &__block3 {
+    margin: 10px;
+    font-size: 20px;
     font-weight: bold;
   }
   &__postcontent {
