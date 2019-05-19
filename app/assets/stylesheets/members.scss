@@ -1,15 +1,14 @@
 // index
 .member-index {
-      text-align: center;
+  text-align: center;
   &__title {
-    width: 100vw;
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
   }
   &__back {
-    margin: 10px;
+    margin: 5px;
   }
   &__items {
 
@@ -29,13 +28,13 @@
     left: 48%;
     margin-left: 10px;
   }
-  &-edit {
-    width: 80%;
-    margin: 5px auto;
-    padding: 5px;
-    height: 44px;;
-    clear: both;
-  }
+  // &-edit {
+  //   width: 80%;
+  //   margin: 5px auto;
+  //   padding: 5px;
+  //   height: 44px;;
+  //   clear: both;
+  // }
 }
 // show
 .member-show {
