@@ -1,15 +1,14 @@
 <div class="member-index">
   <div class="member-index__title">グループ一メンバー覧</div>
   <div class="member-index__back"><%= link_to '戻る', group_path(@group) %></div>
-  <div class="member__items clearfix">
+
     <% @group.members.each do |member| %>
-      <div class="member__item-username"><%= member.user.name %></div>
-        <% if member.user_is_author == false %>
-          <div class="member__item-out">
-            <%= link_to '強制退会', member_path(id: member.id), method: :delete %>
-          </div>
-        <% end %>
-      </div>
+    <div class="member__items clearfix">
+      <!-- <div class="member__item-username"><%#= member.user.name %></div> -->
+      <div class="member__item-username"><%= link_to member.user.name,conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %></div>
+      <% if member.user_is_author == false %>
+        <div class="member__item-out"><%= link_to '強制退会', member_path(id: member.id), method: :delete %></div>
+      <% end %>
+    </div>
     <% end %>
-  </div>
 </div>
