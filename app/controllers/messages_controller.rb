@@ -27,9 +27,9 @@ class MessagesController < ApplicationController
     else
       @conversation = Conversation.find(params[:conversation_id])
       @messages = @conversation.messages
-      # @message = @conversation.messages.build(message_params)
-      flash[:notice] = "メッセージが入力されていません"
-      render 'index'
+      # flash[:notice] = "メッセージが入力されていません"
+      redirect_to conversation_messages_path(@conversation), notice: "メッセージが入力されていません"
+      # render 'index'
     end
   end
 

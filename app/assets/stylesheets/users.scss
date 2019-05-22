@@ -11,6 +11,10 @@
   }
   &__back {
     text-align: center;
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
   &__namesearch {
     float: left;
@@ -84,16 +88,27 @@
   &__title {
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
   }
 }
 // edit
 .user-edit {
   text-align: center;
   &__title {
-
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__show {
-    margin: 10px;
+    // margin: 10px;
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
 
   }
 }
@@ -118,8 +133,12 @@
     &-profilelabel {
 
     }
-    &-temporaryimage {
+    &-temporaryimage  {
 
+    }
+    &-temporaryimage img {
+      width: 250px;
+      height: auto;
     }
     &-imagefield {
 
@@ -159,6 +178,10 @@
   margin: 15px;
   &__userimage {
 
+  }
+  &__userimage img {
+    width: 250px;
+    height: auto;
   }
   &__username {
     // margin: 0 auto;
@@ -202,7 +225,10 @@
     margin: 10px;
   }
   &__groupshow {
-
+    width: 15%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 5px;
   }
 }
 
