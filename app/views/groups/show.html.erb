@@ -1,31 +1,29 @@
 <div class="group-show">
   <div class="group-show__title">グループ詳細</div>
-  <div class="group-show__groupindex"><%= link_to '戻る', groups_path %></div>
+  <div class="group-show__groupindex btn-default"><%= link_to '戻る', groups_path %></div>
   <div class="group-show__groupname">グループ名: <%= @group.name %></div>
   <% if current_user&.is_author(@group.id) %>
-    <div class="group-show__adminmember"><%= link_to "メンバー管理画面", members_path(group_id: @group.id) %></div>
-    <div class="group-show__edit"><%= link_to "編集", edit_group_path(@group.id) %></div>
-    <div class="group-show__destroy"><%= link_to '削除', group_path(@group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
+    <div class="group-show__adminmember btn-light"><%= link_to "メンバー管理画面", members_path(group_id: @group.id) %></div>
+    <div class="group-show__edit btn-light"><%= link_to "編集", edit_group_path(@group.id) %></div>
+    <div class="group-show__destroy btn-light"><%= link_to '削除', group_path(@group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
   <% end %>
 
   <%# unless @group.user_id == current_user.id %>
     <% if @member.present? %>
-      <div class="group-show__out"><%= link_to '退会する', member_path(id: @member.id), method: :delete %></div>
+      <div class="group-show__out btn-danger"><%= link_to '退会する', member_path(id: @member.id), method: :delete %></div>
     <% else %>
-      <div class="group-show__join"><%= link_to '参加する', members_path(group_id: @group.id), method: :post %></div>
+      <div class="group-show__join btn-light"><%= link_to '参加する', members_path(group_id: @group.id), method: :post %></div>
     <% end %>
 
   <% if current_user.is_member(@group.id) %>
     <!-- <div class="group-show__postindex"><%#= link_to "グループの仕事一覧", group_posts_path(group_id: @group.id) %></div> -->
-    <div class="group-show__postindex"><%= link_to "グループの仕事一覧", group_posts_path(@group.id) %></div>
-    <div class="group-show__new"><%= link_to "仕事の新規作成 ", new_group_post_path(@group) %></div>
-    <%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %>
+    <div class="group-show__postindex btn btn-success"><%= link_to "グループの仕事一覧", group_posts_path(@group.id) %></div>
+    <div class="group-show__new btn-success"><%= link_to "仕事の新規作成 ", new_group_post_path(@group) %></div>
+    <div class="group-show__favorite btn-success"><%= link_to "お気に入り一覧",group_favorites_path(@group.id, current_user.id) %></div>
     <div class="group-show__members">
       <% @group.members.each do |member| %>
         <% unless current_user.id == member.user_id%>
-          <div class="group-show__member">
-            <%= link_to member.user.name, conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %>
-          </div>
+          <div class="group-show__member btn-warning"><%= link_to member.user.name, conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %></div>
         <% end %>
       <% end %>
     </div>

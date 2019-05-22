@@ -21,10 +21,16 @@
   }
   &__back {
     text-align: center;
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
   &__new {
-    width: 40vw;
-    margin: 20px auto;
+    width: 15%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
     text-align: center;
   }
 }
@@ -59,9 +65,12 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    // color: aqua;
-    // background-color: #808080;
-    // box-shadow: 1px 1px 10px 4px #808080;
+  }
+  &__index {
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
 }
 
@@ -72,6 +81,12 @@
     margin: 20px 0;
     font-size: 24px;
     font-weight: bold;
+  }
+  &__index {
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
 }
 // form
@@ -86,9 +101,13 @@
 
   }
   &__index {
-
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
   &__body {
+
     &-namelabel {
 
     }
@@ -109,7 +128,10 @@
     font-weight: bold;
   }
   &__groupindex {
-
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
   }
   &__groupname {
     margin: 10px;
@@ -120,34 +142,64 @@
     border: solid 1px #C0C0C0;
     width: 15%;
     margin: 0 auto;
+    width: 20%;
+    margin-top: 5px;
+    // border: solid 1px;
+    padding: 5px;
   }
   &__edit {
     border: solid 1px #C0C0C0;
     width: 15%;
     margin: 0 auto;
+    width: 20%;
+    margin-top: 5px;
+    // border: solid 1px;
+    padding: 5px;
   }
   &__destroy {
     border: solid 1px #C0C0C0;
     width: 15%;
     margin: 0 auto;
+    width: 20%;
+    margin-top: 5px;
+    // border: solid 1px;
+    padding: 5px;
   }
   &__out {
     border: solid 1px #C0C0C0;
     width: 15%;
     margin: 0 auto;
+    width: 20%;
+    margin-top: 5px;
+    // border: solid 1px;
+    padding: 5px;
   }
   &__join {
     border: solid 1px #C0C0C0;
     width: 15%;
     margin: 0 auto;
+    width: 20%;
+    margin-top: 5px;
+    // border: solid 1px;
+    padding: 5px;
   }
   &__postindex {
-    margin: 10px;
-    margin-bottom: 0px;
-
-    padding-top: 10px;
-    border-top: solid 1px;
-    border-color: #DDDDDD;
+    width: 20%;
+    margin-top: 5px;
+    border: solid 1px;
+  }
+  &__new {
+    width: 20%;
+    margin: 5px auto;
+    border: solid 1px;
+    // padding: 1px 5px;
+    padding: 5px;
+  }
+  &__favorite {
+    width: 20%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 5px;
   }
   &__members {
     margin: 10px;
@@ -157,6 +209,9 @@
     // border-color: #DDDDDD;
   }
   &__member {
-
+    width: 20%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 5px;
   }
 }

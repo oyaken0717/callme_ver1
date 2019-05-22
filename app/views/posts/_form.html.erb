@@ -1,4 +1,5 @@
 <div class="post-form">
+  <div class="post-form__index btn-default"><%= link_to "戻る", group_posts_path %></div>
   <% if @post.errors.any? %>
     <div class="post-form__errors">
       <%= @post.errors.count%>件のエラーがあります。
@@ -37,8 +38,5 @@
       <%# f.hidden_field :group_id, value: @group.id %>
       <div class="post-form__body-submit"><%= f.submit %></div>
     <% end %>
-  </div>
-  <div class="post-form__index">
-    <%= link_to "戻る", group_posts_path %>
   </div>
 </div>
