@@ -1,4 +1,4 @@
-<div class="post-form">
+<div class="post-form container">
   <div class="post-form__index btn-default"><%= link_to "戻る", group_posts_path %></div>
   <% if @post.errors.any? %>
     <div class="post-form__errors">
@@ -25,17 +25,23 @@
       <div class="post-form__body-titlefield"><%= f.text_field :title %></div>
       <div class="post-form__body-contentlabel"><%= f.label :内容 %></div>
       <div class="post-form__body-contentfield"><%= f.text_field :content %></div>
-      <div class="post-form__body-tags">
+      <div class="post-form__body-tags row">
         <% Tag.all.each do |tag| %>
-        <div class = "clearfix">
-          <div class="post-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
-          <div class="post-form__body-tagname"><%= tag.name %></div>
-        </div>
+          <div class = "post-form__body-tagset col-md-2">
+            <div class="post-form__body-tagbox"><%= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></div>
+            <div class="post-form__body-tagname"><%= tag.name %></div>
+          </div>
         <% end %>
       </div>
-      <div class="post-form__body-grouplabel"><%#= f.label :グループ %></div>
-      <div class="post-form__body-groupname"><%#= @group.name %></div>
-      <%# f.hidden_field :group_id, value: @group.id %>
+      <!-- <table class="post-form__body-tags row">
+        <tr>
+        <%# Tag.all.each do |tag| %>
+        <div class = "post-form__tagset col-md-2">
+            <td class="post-form__body-tagbox"><%#= f.check_box :tag_ids, {multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id] %></td>
+            <td class="post-form__body-tagname"><%#= tag.name %></td>
+        <%# end %>
+        </tr>
+      </table> -->
       <div class="post-form__body-submit"><%= f.submit %></div>
     <% end %>
   </div>

@@ -113,6 +113,7 @@
     margin: 0 auto
 }
 .post-form{
+
   &__errors{
 
   }
@@ -158,20 +159,25 @@
       height: 500px;
       width: 500px;
     }
-    &-tags {
-
+    &-tagset {
+      margin-top: 5px;
     }
-    &-tagsbox {
-      float: left;
-      position: relative;
-      left: 36%;
-      margin: 10px;
+    &-tags {
+      margin: 10px auto;
+    }
+    &-tagbox {
+      // float: left;
+      // position: relative;
+      // left: 36%;
+      // margin: 10px;
+      padding-left: 15px;
     }
     &-tagname {
-      float: left;
-      position: relative;
-      left: 48%;
-      margin: 10px;
+      padding-left: 5px;
+      // float: left;
+      // position: relative;
+      // left: 48%;
+      // margin: 10px;
     }
     &-grouplabel {
 
@@ -180,7 +186,7 @@
 
     }
     &-submit {
-
+      margin: 20px;
     }
   }
 }

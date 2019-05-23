@@ -1,12 +1,15 @@
 <div class="member-index">
   <div class="member-index__title">グループ一メンバー覧</div>
-  <div class="member-index__back　btn-default"><%= link_to '戻る', group_path(@group) %></div>
+  <div class="member-index__back btn-default"><%= link_to '戻る', group_path(@group) %></div>
   <table class="member__items">
     <% @group.members.each do |member| %>
       <tr>
-        <td class="member__item-username btn-default"><%= link_to member.user.name,conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %></li>
+        <td class="member__item-username btn btn-warning"><%= link_to member.user.name,conversations_path(sender_id: current_user.id, recipient_id: member.user.id), method: :post %></li>
+        <% if member.user_is_author == true %>
+          <td class="member__item-author btn btn-danger">作成者</td>
+        <% end %>
         <% if member.user_is_author == false %>
-          <td class="member__item-out btn-default"><%= link_to '強制退会', member_path(id: member.id), method: :delete %></li>
+          <td class="member__item-out btn btn-danger"><%= link_to '強制退会', member_path(id: member.id), method: :delete %></td>
         <% end %>
       </tr>
     <% end %>
