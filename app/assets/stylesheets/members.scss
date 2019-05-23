@@ -1,6 +1,12 @@
 // index
-.member-index {
+.member-index__back {
   text-align: center;
+  border: solid 1px;
+  width: 5%;
+  margin: 0 auto;
+}
+.member-index {
+
   &__title {
     padding: 20px;
     text-align: center;
@@ -8,10 +14,7 @@
     font-weight: bold;
   }
   &__back {
-    width: 5%;
-    margin: 5px auto;
-    border: solid 1px;
-    padding: 1px 5px;
+
   }
 }
 
@@ -24,34 +27,13 @@
 .member__item {
 
   &-username {
-
+    margin: 2px;
+  }
+  &-author {
+    margin: 2px;
   }
   &-out {
-    padding: 10px;
-  }
-}
-// show
-.member-show {
-  &__title {
-
-  }
-  &__groupindex {
-
-  }
-  &__group-name {
-
-  }
-  &__group-username {
-
-  }
-  &__out {
-
-  }
-  &__in {
-
-  }
-  &__postnew {
-
+    margin: 2px;
   }
 }
 
