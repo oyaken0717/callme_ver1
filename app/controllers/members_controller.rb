@@ -3,7 +3,6 @@ class MembersController < ApplicationController
     # @members = Member.find_by(group_id: params[:group_id])
     # @members = Member.user.groups
     @group = Group.find(params[:group_id])
-    # binding.pry
   end
 
   def create
@@ -17,13 +16,11 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    # member = current_user.members.find_by(id: params[:id]).destroy
-
-    if member = Member.find_by(id: params[:id])
-      member.destroy
-      redirect_to groups_url
+    member = Member.find_by(id: params[:id])
+    if member.destroy
+      redirect_to group_path()
     else
-      redirect_to groups_url
+      redirect_to members_path()
     end
     # , notice: "#{member.group.user.name}さんのグループを退会しました"
   end
