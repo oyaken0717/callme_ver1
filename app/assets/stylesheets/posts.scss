@@ -254,10 +254,10 @@
 
   }
   &__favorite-out {
-
+    margin: 10px auto;
   }
   &__favorite-in {
-
+    margin: 10px auto;
   }
   &__items {
 
@@ -272,7 +272,10 @@
 .post-confirm {
   text-align: center;
   &__confirm {
-
+    margin: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
   }
   &__body {
     &-htitlefield {
@@ -295,34 +298,41 @@
     }
   }
   &__imagetitle {
-
+    font-weight: bold;
   }
   &__image {
     margin: 10px;
   }
   &__image img {
-    width: 40%;
+    width: 250px;
+    height: auto;
   }
   &__title {
-
+    font-weight: bold;
+    font-size: 18px;
+    margin: 5px;
   }
   &__post-title {
-
+    margin: 5px;
   }
   &__content {
-
+    font-weight: bold;
+    font-size: 18px;
+    margin: 5px;
   }
   &__post-content {
-
+    margin: 5px;
   }
   &__group {
-
+    font-weight: bold;
+    font-size: 18px;
+    margin: 5px;
   }
   &__group-name {
-
+    margin: 5px;
   }
   &__submit {
-
+    margin: 5px;
   }
   &__back {
     margin: 10px;

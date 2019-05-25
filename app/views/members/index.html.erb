@@ -9,7 +9,7 @@
           <td class="member__item-author btn btn-danger">作成者</td>
         <% end %>
         <% if member.user_is_author == false %>
-          <td class="member__item-out btn btn-danger"><%= link_to '強制退会', member_path(id: member.id), method: :delete %></td>
+          <td class="member__item-out btn btn-danger"><%= link_to '強制退会', group_member_path(id: member.id), method: :delete %></td>
         <% end %>
       </tr>
     <% end %>

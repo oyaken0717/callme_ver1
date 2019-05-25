@@ -3,16 +3,16 @@
   <div class="group-show__groupindex btn-default"><%= link_to '戻る', groups_path %></div>
   <div class="group-show__groupname">グループ名: <%= @group.name %></div>
   <% if current_user&.is_author(@group.id) %>
-    <div class="group-show__adminmember btn-light"><%= link_to "メンバー管理画面", members_path(group_id: @group.id) %></div>
+    <div class="group-show__adminmember btn-light"><%= link_to "メンバー管理画面", group_members_path(group_id: @group.id) %></div>
     <div class="group-show__edit btn-light"><%= link_to "編集", edit_group_path(@group.id) %></div>
     <div class="group-show__destroy btn-light"><%= link_to '削除', group_path(@group.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
   <% end %>
 
   <%# unless @group.user_id == current_user.id %>
     <% if @member.present? %>
-      <div class="group-show__out btn-danger"><%= link_to '退会する', member_path(id: @member.id), method: :delete %></div>
+      <div class="group-show__out btn-danger"><%= link_to '退会する', group_member_path(id: @member.id, group_id: @group.id), method: :delete %></div>
     <% else %>
-      <div class="group-show__join btn-light"><%= link_to '参加する', members_path(group_id: @group.id), method: :post %></div>
+      <div class="group-show__join btn-light"><%= link_to '参加する', group_members_path(group_id: @group.id), method: :post %></div>
     <% end %>
 
   <% if current_user.is_member(@group.id) %>

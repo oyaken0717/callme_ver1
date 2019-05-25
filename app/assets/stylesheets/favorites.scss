@@ -12,6 +12,13 @@
     // background-color: #808080;
     // box-shadow: 1px 1px 10px 4px #808080;
   }
+  &__back {
+    text-align: center;
+    width: 5%;
+    margin: 5px auto;
+    border: solid 1px;
+    padding: 1px 5px;
+  }
   &__items {
     width: 40vw;
     margin: 20px auto;
