@@ -8,18 +8,13 @@
       <%= f.hidden_field :image_cache %>
       <div class="post-confirm__body-tags">
         <% @post.tags.map(&:id).each do |id| %>
-          <div class="hpost-confirm__body-tag">
-            <%= hidden_field_tag "post[tag_ids][]", id %>
-          </div>
+          <div class="hpost-confirm__body-tag"><%= hidden_field_tag "post[tag_ids][]", id %></div>
         <% end %>
       </div>
-      <div class="post-confirm__body-group">
-        <%= f.hidden_field :group %>
-      </div>
+      <div class="post-confirm__body-group"><%= f.hidden_field :group %></div>
+
       <div class="post-confirm__imagetitle">画像</div>
-      <div class="post-confirm__image">
-        <%= image_tag(@post.image.url) if @post.image.url %><br>
-      </div>
+      <div class="post-confirm__image"><%= image_tag(@post.image.url) if @post.image.url %></div>
       <div class="post-confirm__title">タイトル</div>
       <div class="post-confirm__post-title"><%= @post.title %></div>
       <div class="post-confirm__content">内容</div>

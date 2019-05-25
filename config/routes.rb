@@ -7,7 +7,6 @@ Rails.application.routes.draw do
    resources :messages
   end
 
-  resources :members, only: [:index, :create, :show, :destroy]
   resources :groups do
     resources :posts do
       collection do
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
       end
       resources :comments
     end
+    resources :members, only: [:index, :create, :show, :destroy]
     resources :favorites, only:[:create, :index, :destroy]
     resources :tags, only: [:create, :destroy]
   end

@@ -4,11 +4,18 @@
 <div class = "post-show__block1"><%= "投稿者 #{ @post.user.name }" %></div>
 <div class = "post-show__postimage"><%= image_tag (@post.image.url) if @post.image.url %></div>
 <div class = clearfix>
-<% if current_user == @post.user %>
-  <div class = "post-show__edit btn-default"><%= link_to "編集", edit_group_post_path %></div>
-  <div class = "post-show__delete btn-default"><%= link_to "削除", group_post_path(@post.group_id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
-<% end %>
+  <% if current_user == @post.user %>
+    <div class = "post-show__edit btn-default"><%= link_to "編集", edit_group_post_path %></div>
+    <div class = "post-show__delete btn-default"><%= link_to "削除", group_post_path(@post.group_id), method: :delete, data:{confirm: "本当に削除しますか？"} %></div>
+  <% end %>
 </div>
+<%# <% unless @post.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <div class = "post-show__favorite-out btn btn-danger"><%= link_to "お気に入り解除する", group_favorite_path(id: @favorite.id), method: :delete %></div>
+  <% else %>
+    <div class = "post-show__favorite-in btn btn-warning"><%= link_to "お気に入りする", group_favorites_path(post_id: @post.id), method: :post %></div>
+  <% end %>
+<%# <% end %>
 <div class = "post-show__block3">内容</div>
 <div class = "post-show__postcontent"><%= @post.content %></div>
 <div class = "post-show__block3">タグ</div>
@@ -19,13 +26,6 @@
     </div>
   <% end %>
 </div>
-<% unless @post.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <div class = "post-show__favorite-out"><%= link_to "お気に入り解除する", group_favorite_path(id: @favorite.id), method: :delete %></div>
-  <% else %>
-    <div class = "post-show__favorite-in"><%= link_to "お気に入りする", group_favorites_path(post_id: @post.id), method: :post %></div>
-  <% end %>
-<% end %>
 
 <div id="comments_area">
  <%= render partial: 'comments/index', locals: { group: @group, comments: @comments, post: @post } %>

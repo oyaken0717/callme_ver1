@@ -2,22 +2,13 @@
   <% if comment.id.present? %>
     <div class="for_edit_comment">
       <div class="each_other_comment row" data-comment="<%= comment.id %>">
-        <div class="comment-item__username">
-          <%= comment.user.name %>
-        </div>
+        <div class="comment-item__username"><%= comment.user.name %></div>
         <% if current_user == comment.user %>
-          <div class="comment-item__edit">
-            <%= link_to "編集", edit_group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), remote: true, class: "each_other_comment-edit" %>
-          </div>
-          <div class="comment-item__destroy">
-            <%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %>
-          </div>
-          <% end %>
-        </div>
-        <div class="comment-item__content">
-          <%= comment.content %>
-        </div>
+          <div class="comment-item__edit btn btn-default"><%= link_to "編集", edit_group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), remote: true, class: "each_other_comment-edit" %></div>
+          <div class="comment-item__destroy btn btn-default"><%= link_to '削除', group_post_comment_path( comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true, class: "each_other_comment-delete" %></div>
+        <% end %>
       </div>
+      <div class="comment-item__content"><%= comment.content %></div>
     </div>
   <% end %>
 </div>
